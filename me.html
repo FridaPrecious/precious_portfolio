@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precious Anyangu | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Magazine-style hero section with layered images */
+        .magazine-hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0a192f;
+            color: white;
+        }
+
+        .main-hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.9)), url('https://images.unsplash.com/photo-1517697471339-4aa32003c11a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .side-image-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .side-image-left {
+            width: 25%;
+            height: 70%;
+            align-self: flex-end;
+            margin-left: 5%;
+            margin-bottom: 5%;
+            background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            transform: rotate(-5deg);
+            opacity: 0.9;
+        }
+
+        .side-image-right {
+            width: 25%;
+            height: 70%;
+            align-self: flex-start;
+            margin-right: 5%;
+            margin-top: 5%;
+            background-image: url('https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            transform: rotate(5deg);
+            opacity: 0.9;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            background-color: rgba(10, 25, 47, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #64ffda, #00a8cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            color: #ccd6f6;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #8892b0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #64ffda, #00a8cc);
+            color: #0a192f;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(100, 255, 218, 0.5);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            color: #64ffda;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+
+        /* Main content sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #0a192f;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #64ffda, #00a8cc);
+            border-radius: 2px;
+        }
+
+        /* About section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #0a192f;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+        }
+
+        .contact-item i {
+            color: #00a8cc;
+        }
+
+        .email-link {
+            color: #555;
+            text-decoration: none;
+        }
+
+        .email-link:hover {
+            color: #00a8cc;
+            text-decoration: underline;
+        }
+
+        /* Resume section */
+        .resume-section {
+            background-color: #f0f4f8;
+            padding: 4rem 0;
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .resume-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resume-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume-card h3 {
+            color: #0a192f;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #64ffda;
+        }
+
+        .current-role {
+            border-left: 4px solid #64ffda;
+            background-color: rgba(100, 255, 218, 0.05);
+            position: relative;
+        }
+
+        .current-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #64ffda;
+            color: #0a192f;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .resume-card ul {
+            list-style-type: none;
+        }
+
+        .resume-card li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .resume-card li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #00a8cc;
+        }
+
+        /* Skills section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-category h4 {
+            color: #0a192f;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .skill-tag {
+            background-color: #e6f7ff;
+            color: #0066cc;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Projects section */
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-header {
+            background: linear-gradient(90deg, #0a192f, #112240);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #00a8cc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a192f;
+            color: #ccd6f6;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: #ccd6f6;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #64ffda;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            color: #8892b0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .side-image-left, .side-image-right {
+                width: 30%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .side-image-left, .side-image-right {
+                display: none;
+            }
+            
+            .resume-grid, .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 1.5rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 2rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Magazine-style hero section -->
+    <section class="magazine-hero">
+        <div class="main-hero-image"></div>
+        <div class="side-image-container">
+            <div class="side-image-left"></div>
+            <div class="side-image-right"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Precious Anyangu</h1>
+            <h2>Front-End Developer & AI Engineer</h2>
+            <p>Passionate about building efficient software solutions and improving user experience through technology. Specializing in front-end development, machine learning, and data science.</p>
+            <a href="#resume" class="cta-button">View My Resume</a>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About section -->
+    <section id="about" class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Enthusiastic and detail-oriented Front-End Developer</h3>
+                <p>I'm a Computer Science graduate from Jomo Kenyatta University of Agriculture and Technology with experience in front-end development, machine learning, and data science. I'm passionate about creating innovative solutions that solve real-world problems.</p>
+                <p>My professional experience includes developing responsive web interfaces, building chatbots, maintaining websites, conducting data analysis for agricultural research, and creating AI-powered medical imaging solutions.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nairobi, Kenya</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 103 487 402</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:anyanguprecious@gmail.com" class="email-link">anyanguprecious@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="about-text">
+                <h3>Education</h3>
+                <p><strong>Jomo Kenyatta University of Agriculture and Technology (JKUAT)</strong></p>
+                <p>Bachelor of Science in Computer Science</p>
+                
+                <h3 style="margin-top: 2rem;">Certification</h3>
+                <p><strong>Microsoft Azure Fundamentals</strong> - Issued June 2023</p>
+                
+                <h3 style="margin-top: 2rem;">Languages</h3>
+                <p>English, Kiswahili (Proficient in oral, written, and technical communication)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume section -->
+    <section id="resume" class="resume-section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="resume-grid">
+                <div class="resume-card current-role">
+                    <div class="current-badge">Current Role</div>
+                    <h3>Front-End Developer</h3>
+                    <p><em>BigB | November 2025 – Present</em></p>
+                    <ul>
+                        <li><strong>UI/UX Implementation:</strong> Convert UI/UX designs into clean, responsive web pages ensuring consistency, cross-browser compatibility, and device responsiveness</li>
+                        <li><strong>Development & Integration:</strong> Develop interfaces using HTML, CSS, JavaScript, and frameworks such as React. Integrate APIs and backend services into the front-end</li>
+                        <li><strong>Testing & Quality Assurance:</strong> Conduct UI testing, debug issues, and ensure performance optimization</li>
+                        <li><strong>Documentation & Reporting:</strong> Maintain documentation of components and workflows. Provide daily/weekly progress updates to the Company</li>
+                        <li><strong>Version Control & Collaboration:</strong> Use Git/GitHub for code management. Work collaboratively with designers, backend teams, and project leads</li>
+                    </ul>
+                </div>
+                
+                <div class="resume-card">
+                    <h3>Data Collection Enumerator</h3>
+                    <p><em>Research Project under a PhD Student, University of Nairobi | May 2021 – Present</em></p>
+                    <ul>
+                        <li>Work under the guidance of Sylviah Nekesa, the field consultant supervising the project</li>
+                        <li>Engage with avocado farmers in Murang'a and Kiambu counties</li>
+                        <li>Build trust quickly with diverse individuals, enhancing communication skills</li>
+                        <li>Record and organize data efficiently demonstrating attention to detail</li>
+                    </ul>
+                </div>
+                
+                <div class="resume-card">
+                    <h3>Software Engineer Intern</h3>
+                    <p><em>Kenya Agricultural & Livestock Research Organization (KALRO) | May 2024 – December 2024</em></p>
+                    <ul>
+                        <li>Developed a chatbot for the official KALRO page</li>
+                        <li>Provided website management and maintenance</li>
+                        <li>Conducted departmental training sessions on best practices</li>
+                        <li>Performed data analysis on common plant diseases</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills section -->
+    <section id="skills" class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h4><i class="fas fa-code"></i> Front-End Development</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Responsive Design</span>
+                    <span class="skill-tag">Cross-browser Compatibility</span>
+                    <span class="skill-tag">UI/UX Implementation</span>
+                    <span class="skill-tag">API Integration</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h4><i class="fas fa-brain"></i> Machine Learning & AI</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">Keras</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Transfer Learning</span>
+                    <span class="skill-tag">Computer Vision</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h4><i class="fas fa-database"></i> Backend & Tools</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">OpenCV</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">MySQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects section -->
+    <section id="projects" class="container">
+        <h2 class="section-title">Featured Project</h2>
+        <div class="project-card">
+            <div class="project-header">
+                <h3>AI-Powered Pneumonia Detection and Stage Classification</h3>
+                <p>From Chest X-Rays</p>
+            </div>
+            <div class="project-body">
+                <p><strong>Description:</strong> Developed a full deep learning pipeline using three custom-trained models for detecting pneumonia and classifying its stages from chest X-ray images.</p>
+                <ul>
+                    <li>Image Verification Model (Keras): Filters non-chest X-ray uploads</li>
+                    <li>Pneumonia Detection Model (PyTorch): Binary classification to detect presence/absence of pneumonia</li>
+                    <li>Stage Classifier (Keras): Multi-class model for pneumonia stages</li>
+                    <li>Applied oversampling to address dataset imbalance</li>
+                    <li>Used transfer learning (ResNet18) on Stanford AIMI dataset</li>
+                    <li>Built Flask web application with Docker containerization</li>
+                </ul>
+                <a href="https://github.com/FridaPrecious/happy_doctors.git" class="project-link" target="_blank">View on GitHub →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p>Feel free to reach out for collaborations or just to say hello!</p>
+            
+            <div class="social-links">
+                <a href="https://linkedin.com/in/precious-anyangu-44a5a326b" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/FridaPrecious" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item" style="color: #ccd6f6; justify-content: center;">
+                    <i class="fas fa-phone"></i>
+                    <span>+254 103 487 402</span>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Precious Anyangu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Simple animation for skills on scroll
+        const observerOptions = {
+            threshold: 0.2
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.resume-card, .skill-category, .project-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
