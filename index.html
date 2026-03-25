@@ -47,7 +47,6 @@
             overflow: hidden;
         }
 
-        /* star field (tiny twinkling stars) */
         .stars {
             position: absolute;
             top: 0;
@@ -80,7 +79,6 @@
             100% { opacity: 1; }
         }
 
-        /* floating bubbles / orbs */
         .bubble {
             position: absolute;
             border-radius: 50%;
@@ -92,7 +90,6 @@
             border: 1px solid rgba(45, 212, 191, 0.2);
         }
 
-        /* larger glowing orbs */
         .bubble-glow {
             position: absolute;
             border-radius: 50%;
@@ -134,7 +131,6 @@
             }
         }
 
-        /* additional nebula effect */
         .nebula-haze {
             position: absolute;
             width: 100%;
@@ -144,13 +140,11 @@
             pointer-events: none;
         }
 
-        /* main content wrapper */
         .content {
             position: relative;
             z-index: 2;
         }
 
-        /* ========== HERO SECTION ========== */
         .hero-section {
             min-height: 100vh;
             display: flex;
@@ -287,7 +281,6 @@
             color: #8bb4b0;
         }
 
-        /* sections */
         .section {
             max-width: 1280px;
             margin: 0 auto;
@@ -317,7 +310,6 @@
             color: transparent;
         }
 
-        /* glass panels */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -357,7 +349,6 @@
             gap: 8px;
         }
 
-        /* resume cards */
         .resume-grid-modern {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -419,7 +410,6 @@
             color: var(--accent-cyan);
         }
 
-        /* skills */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -445,7 +435,6 @@
             margin: 0.2rem;
         }
 
-        /* project cards */
         .project-premium {
             background: rgba(10, 15, 26, 0.7);
             backdrop-filter: blur(12px);
@@ -484,7 +473,139 @@
             margin-top: 1rem;
         }
 
-        /* footer */
+        .pwa-badge {
+            display: inline-block;
+            background: rgba(45,212,191,0.2);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 20px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 1rem;
+            vertical-align: middle;
+            color: var(--accent-cyan);
+        }
+
+        .pwa-features-box {
+            background: rgba(45,212,191,0.05);
+            border-radius: 1rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(45,212,191,0.1);
+        }
+
+        .features-title {
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+        }
+
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .feature-item {
+            background: rgba(45,212,191,0.08);
+            border-radius: 15px;
+            padding: 0.2rem 0.7rem;
+            font-size: 0.7rem;
+            color: var(--text-primary);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            align-items: center;
+        }
+
+        .install-btn {
+            background: transparent;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+        }
+
+        .install-btn:hover {
+            background: rgba(45,212,191,0.1);
+            transform: translateY(-1px);
+        }
+
+        .instructions-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: fadeUp 0.3s ease;
+        }
+
+        .modal-content h3 {
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            font-family: 'Syne', sans-serif;
+        }
+
+        .modal-content p {
+            margin: 1rem 0;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .install-steps {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .install-steps li {
+            margin: 0.8rem 0;
+            color: var(--text-primary);
+        }
+
+        .close-modal {
+            background: var(--accent-cyan);
+            color: var(--bg-deep);
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 1rem;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .close-modal:hover {
+            opacity: 0.9;
+        }
+
         .footer-tech {
             background: rgba(3, 5, 11, 0.85);
             backdrop-filter: blur(12px);
@@ -554,15 +675,12 @@
 </head>
 <body>
 
-<!-- GALAXY BACKGROUND WITH FLOATING BUBBLES -->
 <div class="galaxy-bg">
     <div class="stars"></div>
     <div class="nebula-haze"></div>
-    <!-- floating bubbles will be injected via JS for dynamic variety -->
 </div>
 
 <div class="content">
-    <!-- HERO SECTION -->
     <section class="hero-section">
         <div class="hero-container">
             <div class="hero-left">
@@ -571,34 +689,30 @@
                 <div class="hero-tagline">Front-End Developer & AI Engineer</div>
                 <p class="hero-desc">Passionate about building efficient software solutions and improving user experience through technology. Specializing in front-end development, machine learning, and data science.</p>
                 <div class="btn-group">
-                    <a href="#resume" class="btn-primary-glow"><i class="fas fa-arrow-down"></i> Explore Resume</a>
-                    <a href="#projects" class="btn-outline-tech"><i class="fas fa-code-branch"></i> Featured Work</a>
+                    <a href="#resume" class="btn-primary-glow"> Explore Resume</a>
+                    <a href="#projects" class="btn-outline-tech"> Featured Work</a>
                 </div>
             </div>
             <div class="hero-right">
                 <div class="tech-card">
-                    <i class="fas fa-laptop-code"></i>
                     <div class="code-snippet">$ npm run dev → interactive experiences</div>
                     <div style="font-size:0.8rem; margin-top:8px;">React • TypeScript • Tailwind • Three.js</div>
                 </div>
                 <div class="tech-card">
-                    <i class="fas fa-brain"></i>
                     <div class="code-snippet">model.fit(X_train, y_train) → pneumonia stage classifier</div>
                     <div style="font-size:0.8rem; margin-top:8px;">PyTorch • TensorFlow • OpenCV</div>
                 </div>
                 <div class="tech-card">
-                    <i class="fas fa-globe"></i>
                     <div class="code-snippet">design → deploy: 3D mapping & real-time dashboards</div>
                     <div style="font-size:0.8rem; margin-top:8px;">Leaflet.js • Vercel • API integration</div>
                 </div>
             </div>
         </div>
         <div style="position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); color: var(--accent-cyan); font-size: 1.2rem; animation: bounce 2s infinite;">
-            <i class="fas fa-chevron-down"></i>
+            ↓
         </div>
     </section>
 
-    <!-- ABOUT SECTION (content unchanged) -->
     <section id="about" class="section">
         <div class="section-header">
             <div class="overline">// about me</div>
@@ -610,9 +724,9 @@
                 <p>A Computer Science graduate from Jomo Kenyatta University of Agriculture and Technology with experience in front-end development, machine learning, and data science. Passionate about creating innovative solutions that solve real-world problems.</p>
                 <p style="margin-top: 1rem;">Professional experience includes developing responsive web interfaces, building chatbots, maintaining websites, conducting data analysis for agricultural research, and creating AI-powered medical imaging solutions.</p>
                 <div class="contact-chip-list">
-                    <div class="contact-chip"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</div>
-                    <div class="contact-chip"><i class="fas fa-phone"></i> +254 103 487 402</div>
-                    <div class="contact-chip"><i class="fas fa-envelope"></i> anyanguprecious@gmail.com</div>
+                    <div class="contact-chip"> Nairobi, Kenya</div>
+                    <div class="contact-chip"> +254 103 487 402</div>
+                    <div class="contact-chip"> anyanguprecious@gmail.com</div>
                 </div>
             </div>
             <div class="glass-panel reveal">
@@ -626,7 +740,6 @@
         </div>
     </section>
 
-    <!-- RESUME SECTION - full content -->
     <section id="resume" style="background: rgba(0,0,0,0.2);">
         <div class="section">
             <div class="section-header">
@@ -641,8 +754,8 @@
                     <ul class="exp-list">
                         <li><strong>UI/UX Implementation:</strong> Convert UI/UX designs into clean, responsive web pages ensuring consistency, cross-browser compatibility, and device responsiveness</li>
                         <li><strong>Development & Integration:</strong> Develop interfaces using HTML, CSS, JavaScript, and frameworks such as React. Integrate APIs and backend services into the front-end</li>
+                        <li><strong>PWA Implementation:</strong> Successfully converted Pixium website to Progressive Web App with offline capabilities and installable features</li>
                         <li><strong>Testing & Quality Assurance:</strong> Conduct UI testing, debug issues, and ensure performance optimization</li>
-                        <li><strong>Documentation & Reporting:</strong> Maintain documentation of components and workflows. Provide daily/weekly progress updates to the Company</li>
                         <li><strong>Version Control & Collaboration:</strong> Use Git/GitHub for code management. Work collaboratively with designers, backend teams, and project leads</li>
                     </ul>
                 </div>
@@ -665,7 +778,6 @@
                         <li>Analyzed server logs, APIs, and system diagnostics to identify root causes of dashboard data delays and connectivity failures</li>
                         <li>Created technical troubleshooting guides and documentation for field officers, improving future issue resolution time and knowledge sharing</li>
                         <li>Performed data analysis on plant disease trends and seedling orders to support agricultural research and resource planning</li>
-                        <li>Collaborated with engineers to recommend performance optimizations for dashboard refresh rates and API integrations</li>
                     </ul>
                 </div>
                 <div class="exp-card reveal">
@@ -681,7 +793,6 @@
         </div>
     </section>
 
-    <!-- SKILLS SECTION -->
     <section id="skills" class="section">
         <div class="section-header">
             <div class="overline">technical arsenal</div>
@@ -689,21 +800,21 @@
         </div>
         <div class="skills-grid">
             <div class="skill-category-modern reveal">
-                <h4 style="display: flex; gap: 10px;"><i class="fas fa-code"></i> Front-End Development</h4>
+                <h4>Front-End Development</h4>
                 <div>
                     <span class="skill-badge">HTML5</span><span class="skill-badge">CSS3</span><span class="skill-badge">JavaScript</span><span class="skill-badge">React</span>
                     <span class="skill-badge">TypeScript</span><span class="skill-badge">Tailwind CSS</span><span class="skill-badge">Responsive Design</span>
-                    <span class="skill-badge">Cross-browser Compatibility</span><span class="skill-badge">UI/UX Implementation</span>
-                    <span class="skill-badge">API Integration</span><span class="skill-badge">Leaflet.js</span><span class="skill-badge">3D Visualization</span>
+                    <span class="skill-badge">PWA</span><span class="skill-badge">Next.js</span><span class="skill-badge">API Integration</span>
+                    <span class="skill-badge">Leaflet.js</span><span class="skill-badge">Three.js</span>
                 </div>
             </div>
             <div class="skill-category-modern reveal">
-                <h4 style="display: flex; gap: 10px;"><i class="fas fa-brain"></i> Machine Learning & AI</h4>
+                <h4>Machine Learning & AI</h4>
                 <div><span class="skill-badge">Python</span><span class="skill-badge">Scikit-learn</span><span class="skill-badge">Keras</span><span class="skill-badge">TensorFlow</span>
                 <span class="skill-badge">PyTorch</span><span class="skill-badge">Transfer Learning</span><span class="skill-badge">Computer Vision</span><span class="skill-badge">OpenCV</span></div>
             </div>
             <div class="skill-category-modern reveal">
-                <h4 style="display: flex; gap: 10px;"><i class="fas fa-database"></i> Backend & Tools</h4>
+                <h4>Backend & Tools</h4>
                 <div><span class="skill-badge">Django</span><span class="skill-badge">Flask</span><span class="skill-badge">Pandas</span><span class="skill-badge">NumPy</span>
                 <span class="skill-badge">Git/GitHub</span><span class="skill-badge">Docker</span><span class="skill-badge">REST APIs</span><span class="skill-badge">MongoDB</span>
                 <span class="skill-badge">MySQL</span><span class="skill-badge">Vercel</span></div>
@@ -711,30 +822,54 @@
         </div>
     </section>
 
-    <!-- PROJECTS SECTION (unchanged content) -->
     <section id="projects" class="section">
         <div class="section-header">
             <div class="overline">case studies</div>
             <h2>Featured Projects</h2>
         </div>
+        
+        <!-- Enhanced Pixium PWA Project -->
         <div class="project-premium reveal">
             <div class="project-header-premium">
-                <h3>Pixium Kenya Website</h3>
-                <p style="color: var(--accent-cyan);">Responsive Front-End Development with Interactive Features</p>
+                <h3>Pixium Kenya </h3>
+                <p style="color: var(--accent-cyan);">Official Website | Progressive Web App | Installable</p>
             </div>
             <div class="project-body-premium">
-                <p><strong>Description:</strong> A responsive, high-performance website built for Pixium Kenya, featuring interactive mapping, 3D product visualization, and seamless user experience.</p>
+                <p><strong>Description:</strong> A fully responsive, high-performance Progressive Web App (PWA) built for Pixium Kenya, featuring interactive mapping, 3D product visualization, and seamless user experience. The website can be installed on any device and works offline.</p>
+                
                 <ul style="margin-left: 1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                    <li><strong>Progressive Web App:</strong> Full PWA implementation with manifest, service workers, and installable features</li>
+                    <li><strong>Installable Experience:</strong> Users can install the website as a native app on mobile and desktop with standalone display mode</li>
                     <li><strong>Interactive Store Locator:</strong> Integrated Leaflet.js mapping to help users find nearby shops and distributors based on location</li>
-                    <li><strong>3D Product Visualization:</strong> Implemented 3D rotation for product displays</li>
+                    <li><strong>3D Product Visualization:</strong> Implemented 3D rotation for product displays using Three.js</li>
                     <li><strong>Dynamic Form Integration:</strong> Fully functional contact form with API integration</li>
-                    <li><strong>Mobile-First Responsive Design:</strong> Optimized for all devices</li>
-                    <li><strong>Performance Optimized:</strong> Deployed on Vercel</li>
+                    <li><strong>Mobile-First Responsive Design:</strong> Optimized for all devices from mobile to desktop</li>
+                    <li><strong>Performance Optimized:</strong> Lighthouse scores of 95+ for PWA, performance, and accessibility</li>
                 </ul>
-                <a href="https://pixiumkenya.vercel.app/" class="project-link-modern" target="_blank">Live Site →</a>
-                <a href="https://github.com/FridaPrecious/website" class="project-link-modern" target="_blank">GitHub →</a>
+                
+                <div class="pwa-features-box">
+                    <p class="features-title">PWA Features Implemented:</p>
+                    <div class="features-grid">
+                        <span class="feature-item">Web App Manifest</span>
+                        <span class="feature-item">Service Workers</span>
+                    
+                        <span class="feature-item">Install Prompt</span>
+                        
+                        
+                        <span class="feature-item">Splash Screen - Mobile</span>
+                        <span class="feature-item">Standalone Mode</span>
+                    </div>
+                </div>
+                
+                <div class="project-links">
+                    <a href="https://pixiumkenya.vercel.app/" class="project-link-modern" target="_blank">Live Site</a>
+                    <a href="https://github.com/FridaPrecious/website" class="project-link-modern" target="_blank">GitHub Repository</a>
+                    <button onclick="showInstallInstructions()" class="install-btn">How to Install PWA</button>
+                </div>
             </div>
         </div>
+        
+        <!-- AI Pneumonia Detection Project -->
         <div class="project-premium reveal">
             <div class="project-header-premium">
                 <h3>AI-Powered Pneumonia Detection and Stage Classification</h3>
@@ -749,7 +884,7 @@
                     <li>Applied oversampling, transfer learning (ResNet18)</li>
                     <li>Flask web application with Docker containerization</li>
                 </ul>
-                <a href="https://github.com/FridaPrecious/happy_doctors.git" class="project-link-modern" target="_blank">GitHub Repository →</a>
+                <a href="https://github.com/FridaPrecious/happy_doctors.git" class="project-link-modern" target="_blank">GitHub Repository</a>
             </div>
         </div>
     </section>
@@ -771,13 +906,48 @@
 </div>
 
 <script>
-    // Create floating bubbles for galaxy effect
+    function showInstallInstructions() {
+        const modal = document.createElement('div');
+        modal.className = 'instructions-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <h3>How to Install Pixium PWA</h3>
+                
+                <p><strong>On Mobile (Android):</strong></p>
+                <ul class="install-steps">
+                    <li>1. Open pixiumkenya.vercel.app in Chrome or Safari</li>
+                    <li>2. Tap the share button (or three dots menu)</li>
+                    <li>3. Select "Add to Home Screen" or "Install App"</li>
+                    <li>4. Confirm installation</li>
+                </ul>
+                
+                <p><strong>On Desktop (Chrome):</strong></p>
+                <ul class="install-steps">
+                    <li>1. Visit pixiumkenya.vercel.app</li>
+                    <li>2. Look for the install icon in the address bar</li>
+                    <li>3. Click "Install" to add to your taskbar</li>
+                    <li>4. Launch from your device like a native app</li>
+                </ul>
+                
+                <button class="close-modal" onclick="this.closest('.instructions-modal').remove()">Got it</button>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        modal.style.display = 'flex';
+        
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
+    }
+    
     function createBubbles() {
         const bgContainer = document.querySelector('.galaxy-bg');
         const bubbleCount = 45;
         const glowOrbCount = 12;
         
-        // small floating bubbles
         for (let i = 0; i < bubbleCount; i++) {
             const bubble = document.createElement('div');
             bubble.classList.add('bubble');
@@ -791,7 +961,6 @@
             bgContainer.appendChild(bubble);
         }
         
-        // larger glowing orbs (slow floating)
         for (let i = 0; i < glowOrbCount; i++) {
             const glow = document.createElement('div');
             glow.classList.add('bubble-glow');
@@ -806,7 +975,6 @@
             bgContainer.appendChild(glow);
         }
         
-        // additional tiny sparkles (more stars)
         for (let i = 0; i < 80; i++) {
             const sparkle = document.createElement('div');
             sparkle.style.position = 'absolute';
@@ -823,7 +991,6 @@
         }
     }
     
-    // smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -832,7 +999,6 @@
         });
     });
     
-    // reveal animation
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -841,7 +1007,6 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
     
-    // init bubbles after load
     window.addEventListener('load', createBubbles);
 </script>
 </body>
