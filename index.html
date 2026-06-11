@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Precious Anyangu | Front-End Developer & AI Engineer — Galactic Portfolio</title>
+    <title>Precious Anyangu | Full-Stack Developer & AI Engineer — Galactic Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -24,7 +24,6 @@
             --text-secondary: #94A3B8;
             --border-glow: rgba(45, 212, 191, 0.2);
             --card-radius: 2rem;
-            --transition-magnetic: cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
 
         body {
@@ -35,7 +34,6 @@
             overflow-x: hidden;
         }
 
-        /* ========== GALAXY BACKGROUND WITH FLOATING BUBBLES ========== */
         .galaxy-bg {
             position: fixed;
             top: 0;
@@ -104,12 +102,8 @@
                 transform: translateY(100vh) translateX(0) rotate(0deg);
                 opacity: 0;
             }
-            10% {
-                opacity: 0.5;
-            }
-            90% {
-                opacity: 0.5;
-            }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
             100% {
                 transform: translateY(-20vh) translateX(30px) rotate(360deg);
                 opacity: 0;
@@ -473,7 +467,7 @@
             margin-top: 1rem;
         }
 
-        .pwa-badge {
+        .tech-stack-badge {
             display: inline-block;
             background: rgba(45,212,191,0.2);
             border: 1px solid var(--accent-cyan);
@@ -486,7 +480,7 @@
             color: var(--accent-cyan);
         }
 
-        .pwa-features-box {
+        .features-box {
             background: rgba(45,212,191,0.05);
             border-radius: 1rem;
             padding: 1rem;
@@ -521,89 +515,6 @@
             flex-wrap: wrap;
             margin-top: 1rem;
             align-items: center;
-        }
-
-        .install-btn {
-            background: transparent;
-            border: 1px solid var(--accent-cyan);
-            color: var(--accent-cyan);
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: 0.2s;
-            font-family: inherit;
-        }
-
-        .install-btn:hover {
-            background: rgba(45,212,191,0.1);
-            transform: translateY(-1px);
-        }
-
-        .instructions-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: rgba(10, 15, 26, 0.95);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--accent-cyan);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            animation: fadeUp 0.3s ease;
-        }
-
-        .modal-content h3 {
-            color: var(--accent-cyan);
-            margin-bottom: 1.5rem;
-            font-family: 'Syne', sans-serif;
-        }
-
-        .modal-content p {
-            margin: 1rem 0;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .install-steps {
-            margin: 1.5rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .install-steps li {
-            margin: 0.8rem 0;
-            color: var(--text-primary);
-        }
-
-        .close-modal {
-            background: var(--accent-cyan);
-            color: var(--bg-deep);
-            border: none;
-            padding: 0.6rem 1.5rem;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 1rem;
-            width: 100%;
-            font-size: 0.9rem;
-        }
-
-        .close-modal:hover {
-            opacity: 0.9;
         }
 
         .footer-tech {
@@ -684,32 +595,35 @@
     <section class="hero-section">
         <div class="hero-container">
             <div class="hero-left">
-                <div class="badge-tech">&lt;frontend_architect /&gt; & AI_engineer</div>
+                <div class="badge-tech">&lt;fullstack_architect /&gt; & AI_engineer</div>
                 <h1>Precious Anyangu</h1>
-                <div class="hero-tagline">Front-End Developer & AI Engineer</div>
-                <p class="hero-desc">Passionate about building efficient software solutions and improving user experience through technology. Specializing in front-end development, machine learning, and data science.</p>
+                <div class="hero-tagline">Full-Stack Developer & AI Engineer</div>
+                <p class="hero-desc">Passionate about building efficient software solutions and improving user experience through technology. Specializing in full-stack development, machine learning, and data science.</p>
                 <div class="btn-group">
-                    <a href="#resume" class="btn-primary-glow"> Explore Resume</a>
-                    <a href="#projects" class="btn-outline-tech"> Featured Work</a>
+                    <a href="#resume" class="btn-primary-glow"><i class="fas fa-arrow-down"></i> Explore Resume</a>
+                    <a href="#projects" class="btn-outline-tech"><i class="fas fa-code-branch"></i> Featured Work</a>
                 </div>
             </div>
             <div class="hero-right">
                 <div class="tech-card">
-                    <div class="code-snippet">$ npm run dev → interactive experiences</div>
-                    <div style="font-size:0.8rem; margin-top:8px;">React • TypeScript • Tailwind • js</div>
+                    <i class="fas fa-laptop-code"></i>
+                    <div class="code-snippet">Full-Stack • Django REST • Vanilla JS • SQLite/PostgreSQL</div>
+                    <div style="font-size:0.8rem; margin-top:8px;">Employee Management System | CRUD | JWT</div>
                 </div>
                 <div class="tech-card">
-                    <div class="code-snippet">model.fit(X_train, y_train) → pneumonia stage classifier</div>
+                    <i class="fas fa-brain"></i>
+                    <div class="code-snippet">Deep Learning • Pneumonia Detection • Stage Classification</div>
                     <div style="font-size:0.8rem; margin-top:8px;">PyTorch • TensorFlow • OpenCV</div>
                 </div>
                 <div class="tech-card">
-                    <div class="code-snippet">design → deploy: 3D mapping & real-time dashboards</div>
-                    <div style="font-size:0.8rem; margin-top:8px;">Leaflet.js • Vercel • API integration</div>
+                    <i class="fas fa-globe"></i>
+                    <div class="code-snippet">PWA • Interactive Mapping • 3D Visualization</div>
+                    <div style="font-size:0.8rem; margin-top:8px;">React • Leaflet.js • Three.js • Vercel</div>
                 </div>
             </div>
         </div>
         <div style="position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); color: var(--accent-cyan); font-size: 1.2rem; animation: bounce 2s infinite;">
-            ↓
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
@@ -720,13 +634,13 @@
         </div>
         <div class="about-grid">
             <div class="glass-panel reveal">
-                <h3>Enthusiastic and detail-oriented Front-End Developer</h3>
-                <p>A Computer Science graduate from Jomo Kenyatta University of Agriculture and Technology with experience in front-end development, machine learning, and data science. Passionate about creating innovative solutions that solve real-world problems.</p>
-                <p style="margin-top: 1rem;">Professional experience includes developing responsive web interfaces, building chatbots, maintaining websites, conducting data analysis for agricultural research, and creating AI-powered medical imaging solutions.</p>
+                <h3>Full-Stack Developer & AI Engineer</h3>
+                <p>A Computer Science graduate from Jomo Kenyatta University of Agriculture and Technology with experience in full-stack development, front-end engineering, machine learning, and data science. Passionate about creating innovative solutions that solve real-world problems.</p>
+                <p style="margin-top: 1rem;">Professional experience includes developing responsive web interfaces, building full-stack applications with Django REST and vanilla JavaScript, creating PWAs, building chatbots, maintaining websites, conducting data analysis for agricultural research, and creating AI-powered medical imaging solutions.</p>
                 <div class="contact-chip-list">
-                    <div class="contact-chip"> Nairobi, Kenya</div>
-                    <div class="contact-chip"> +254 103 487 402</div>
-                    <div class="contact-chip"> anyanguprecious@gmail.com</div>
+                    <div class="contact-chip"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</div>
+                    <div class="contact-chip"><i class="fas fa-phone"></i> +254 103 487 402</div>
+                    <div class="contact-chip"><i class="fas fa-envelope"></i> anyanguprecious@gmail.com</div>
                 </div>
             </div>
             <div class="glass-panel reveal">
@@ -752,19 +666,18 @@
                     <h3>Front-End Developer</h3>
                     <div class="exp-date">Pixium Technologies Africa Limited | October 2025 – March 2026</div>
                     <ul class="exp-list">
-                        <li><strong>UI/UX Implementation:</strong> Convert UI/UX designs into clean, responsive web pages ensuring consistency, cross-browser compatibility, and device responsiveness</li>
-                        <li><strong>Development & Integration:</strong> Develop interfaces using HTML, CSS, JavaScript, and frameworks such as React. Integrate APIs and backend services into the front-end</li>
-                        <li><strong>PWA Implementation:</strong> Successfully converted Pixium website to Progressive Web App with offline capabilities and installable features</li>
-                        <li><strong>Testing & Quality Assurance:</strong> Conduct UI testing, debug issues, and ensure performance optimization</li>
-                        <li><strong>Version Control & Collaboration:</strong> Use Git/GitHub for code management. Work collaboratively with designers, backend teams, and project leads</li>
+                        <li>Convert UI/UX designs into clean, responsive web pages ensuring consistency and cross-browser compatibility</li>
+                        <li>Develop interfaces using HTML, CSS, JavaScript, and React. Integrate APIs and backend services into the front-end</li>
+                        <li>Successfully converted website to Progressive Web App (PWA) with offline capabilities and installable features</li>
+                        <li>Conduct UI testing, debug issues, and ensure performance optimization</li>
+                        <li>Use Git/GitHub for code management and collaborate with designers and backend teams</li>
                     </ul>
                 </div>
                 <div class="exp-card reveal">
                     <h3>Data Collection Enumerator</h3>
-                    <div class="exp-date">Research Project under a PhD Student, University of Nairobi | May 2025 – January 2026</div>
+                    <div class="exp-date">Research Project, University of Nairobi | May 2025 – January 2026</div>
                     <ul class="exp-list">
-                        <li>Work under the guidance of a field consultant supervising the project</li>
-                        <li>Engage with avocado farmers in Murang'a and Kiambu counties, conducting face-to-face interviews in rural field settings</li>
+                        <li>Engage with avocado farmers in Murang'a and Kiambu counties, conducting face-to-face interviews</li>
                         <li>Build trust quickly with diverse individuals, enhancing communication and interpersonal skills</li>
                         <li>Record and organize data efficiently demonstrating attention to detail and reliability</li>
                     </ul>
@@ -773,11 +686,11 @@
                     <h3>Software Engineer Intern</h3>
                     <div class="exp-date">Kenya Agricultural & Livestock Research Organization (KALRO) | May 2024 – December 2024</div>
                     <ul class="exp-list">
-                        <li>Supported the Kenya Agricultural Observatory Platform (KAOP) a real-time digital platform offering market insights, weather forecasts, and chatbot interaction for farmers.</li>
-                        <li>Diagnosed and resolved data synchronization issues between KAOP backend servers and the live dashboard, improving real-time data update speeds by 30%</li>
-                        <li>Analyzed server logs, APIs, and system diagnostics to identify root causes of dashboard data delays and connectivity failures</li>
-                        <li>Created technical troubleshooting guides and documentation for field officers, improving future issue resolution time and knowledge sharing</li>
-                        <li>Performed data analysis on plant disease trends and seedling orders to support agricultural research and resource planning</li>
+                        <li>Supported Kenya Agricultural Observatory Platform (KAOP) - real-time digital platform for farmers</li>
+                        <li>Diagnosed and resolved data synchronization issues, improving real-time data update speeds by 30%</li>
+                        <li>Analyzed server logs, APIs, and system diagnostics to identify root causes of dashboard data delays</li>
+                        <li>Created technical troubleshooting guides for field officers</li>
+                        <li>Performed data analysis on plant disease trends and seedling orders</li>
                     </ul>
                 </div>
                 <div class="exp-card reveal">
@@ -786,7 +699,7 @@
                     <ul class="exp-list">
                         <li>Promoted and displayed products such as Dettol, Nivea, and Indomie in major supermarkets</li>
                         <li>Ensured proper stock placement, visibility, and branding to attract customer attention</li>
-                        <li>Built positive relationships with store managers and customers, improving brand loyalty</li>
+                        <li>Built positive relationships with store managers and customers</li>
                     </ul>
                 </div>
             </div>
@@ -800,24 +713,23 @@
         </div>
         <div class="skills-grid">
             <div class="skill-category-modern reveal">
-                <h4>Front-End Development</h4>
+                <h4><i class="fas fa-code"></i> Front-End Development</h4>
                 <div>
-                    <span class="skill-badge">HTML5</span><span class="skill-badge">CSS3</span><span class="skill-badge">JavaScript</span><span class="skill-badge">React</span>
-                    <span class="skill-badge">TypeScript</span><span class="skill-badge">Tailwind CSS</span><span class="skill-badge">Responsive Design</span>
-                    <span class="skill-badge">PWA</span><span class="skill-badge">Next.js</span><span class="skill-badge">API Integration</span>
-                    <span class="skill-badge">Leaflet.js</span><span class="skill-badge">Three.js</span>
+                    <span class="skill-badge">HTML5</span><span class="skill-badge">CSS3</span><span class="skill-badge">JavaScript (ES6+)</span><span class="skill-badge">React</span>
+                    <span class="skill-badge">Vanilla JS</span><span class="skill-badge">Fetch API</span><span class="skill-badge">Tailwind CSS</span>
+                    <span class="skill-badge">PWA</span><span class="skill-badge">Responsive Design</span><span class="skill-badge">Leaflet.js</span><span class="skill-badge">Three.js</span>
                 </div>
             </div>
             <div class="skill-category-modern reveal">
-                <h4>Machine Learning & AI</h4>
+                <h4><i class="fas fa-brain"></i> Machine Learning & AI</h4>
                 <div><span class="skill-badge">Python</span><span class="skill-badge">Scikit-learn</span><span class="skill-badge">Keras</span><span class="skill-badge">TensorFlow</span>
                 <span class="skill-badge">PyTorch</span><span class="skill-badge">Transfer Learning</span><span class="skill-badge">Computer Vision</span><span class="skill-badge">OpenCV</span></div>
             </div>
             <div class="skill-category-modern reveal">
-                <h4>Backend & Tools</h4>
-                <div><span class="skill-badge">Django</span><span class="skill-badge">Flask</span><span class="skill-badge">Pandas</span><span class="skill-badge">NumPy</span>
-                <span class="skill-badge">Git/GitHub</span><span class="skill-badge">Docker</span><span class="skill-badge">REST APIs</span><span class="skill-badge">MongoDB</span>
-                <span class="skill-badge">MySQL</span><span class="skill-badge">Vercel</span></div>
+                <h4><i class="fas fa-database"></i> Backend & Full-Stack</h4>
+                <div><span class="skill-badge">Django 5.2.5</span><span class="skill-badge">Django REST Framework</span><span class="skill-badge">Flask</span><span class="skill-badge">REST APIs</span>
+                <span class="skill-badge">JWT Auth</span><span class="skill-badge">PostgreSQL</span><span class="skill-badge">SQLite</span><span class="skill-badge">MySQL</span>
+                <span class="skill-badge">Git/GitHub</span><span class="skill-badge">Docker</span><span class="skill-badge">Vercel</span></div>
             </div>
         </div>
     </section>
@@ -828,10 +740,33 @@
             <h2>Featured Projects</h2>
         </div>
         
-        <!-- Enhanced Pixium PWA Project -->
+        <!-- Employee Management System - Full Stack with Vanilla JS Frontend -->
         <div class="project-premium reveal">
             <div class="project-header-premium">
-                <h3>Pixium Kenya </h3>
+                <h3>Employee Management System <span class="tech-stack-badge">Full-Stack • Django REST • Vanilla JS</span></h3>
+                <p style="color: var(--accent-cyan);">Complete HR Management Platform | CRUD Operations | Production-Ready</p>
+            </div>
+            <div class="project-body-premium">
+                <p><strong>Description:</strong> A system for HR to manage employee information. A full-featured, production-ready employee management system built with Django REST Framework and modern web technologies. This application provides complete CRUD operations with robust validation, search functionality, and a sleek dark-themed user interface.</p>
+                
+                <ul style="margin-left: 1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                    <li><strong>Backend Features:</strong> Complete CRUD operations, RESTful API with proper HTTP methods, layered architecture (Controller, Service, Repository layers), comprehensive validation including email format with typo detection, required field validation, unique email enforcement, and salary validation (> zero)</li>
+                    <li><strong>Custom Database Queries:</strong> Filter employees by department, filter employees by salary threshold</li>
+                    <li><strong>Global Exception Handling:</strong> Consistent error response format with meaningful messages</li>
+                    <li><strong>Frontend Features:</strong> Modern dark-themed UI, fully responsive design, real-time statistics dashboard (total employees, department count, average salary), advanced search by ID/name/email/department, modal views for employee details, inline editing without page refresh, instant feedback messages, and Kenyan Shilling (KSH) currency format</li>
+                    <li><strong>Security & Error Handling:</strong> Input sanitization, comprehensive user-friendly error messages, duplicate detection, and graceful handling of server connection issues</li>
+                </ul>
+                
+                <div class="project-links">
+                    <a href="https://github.com/FridaPrecious/employee_management_system.git" class="project-link-modern" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pixium Kenya PWA Project -->
+        <div class="project-premium reveal">
+            <div class="project-header-premium">
+                <h3>Pixium Kenya Website <span class="tech-stack-badge">PWA • React</span></h3>
                 <p style="color: var(--accent-cyan);">Official Website | Progressive Web App | Installable</p>
             </div>
             <div class="project-body-premium">
@@ -839,32 +774,15 @@
                 
                 <ul style="margin-left: 1rem; color: var(--text-secondary); margin-top: 0.5rem;">
                     <li><strong>Progressive Web App:</strong> Full PWA implementation with manifest, service workers, and installable features</li>
-                    <li><strong>Installable Experience:</strong> Users can install the website as a native app on mobile and desktop with standalone display mode</li>
-                    <li><strong>Interactive Store Locator:</strong> Integrated Leaflet.js mapping to help users find nearby shops and distributors based on location</li>
+                    <li><strong>Interactive Store Locator:</strong> Integrated Leaflet.js mapping to help users find nearby shops and distributors</li>
                     <li><strong>3D Product Visualization:</strong> Implemented 3D rotation for product displays using Three.js</li>
                     <li><strong>Dynamic Form Integration:</strong> Fully functional contact form with API integration</li>
                     <li><strong>Mobile-First Responsive Design:</strong> Optimized for all devices from mobile to desktop</li>
-                    <li><strong>Performance Optimized:</strong> Lighthouse scores of 95+ for PWA, performance, and accessibility</li>
                 </ul>
                 
-                <div class="pwa-features-box">
-                    <p class="features-title">PWA Features Implemented:</p>
-                    <div class="features-grid">
-                        <span class="feature-item">Web App Manifest</span>
-                        <span class="feature-item">Service Workers</span>
-                    
-                        <span class="feature-item">Install Prompt</span>
-                        
-                        
-                        <span class="feature-item">Splash Screen - Mobile</span>
-                        <span class="feature-item">Standalone Mode</span>
-                    </div>
-                </div>
-                
                 <div class="project-links">
-                    <a href="https://pixiumkenya.vercel.app/" class="project-link-modern" target="_blank">Live Site</a>
-                    <a href="https://github.com/FridaPrecious/website" class="project-link-modern" target="_blank">GitHub Repository</a>
-                    <button onclick="showInstallInstructions()" class="install-btn">How to Install PWA</button>
+                    <a href="https://pixiumkenya.vercel.app/" class="project-link-modern" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
+                    <a href="https://github.com/FridaPrecious/website" class="project-link-modern" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
                 </div>
             </div>
         </div>
@@ -872,27 +790,27 @@
         <!-- AI Pneumonia Detection Project -->
         <div class="project-premium reveal">
             <div class="project-header-premium">
-                <h3>AI-Powered Pneumonia Detection and Stage Classification</h3>
+                <h3>AI-Powered Pneumonia Detection and Stage Classification <span class="tech-stack-badge">Deep Learning • Flask</span></h3>
                 <p style="color: var(--accent-cyan);">From Chest X-Rays</p>
             </div>
             <div class="project-body-premium">
                 <p><strong>Description:</strong> Full deep learning pipeline using three custom-trained models for detecting pneumonia and classifying its stages from chest X-ray images.</p>
                 <ul style="margin-left: 1rem; color: var(--text-secondary);">
                     <li>Image Verification Model (Keras): Filters non-chest X-ray uploads</li>
-                    <li>Pneumonia Detection Model (PyTorch): Binary classification</li>
-                    <li>Stage Classifier (Keras): Multi-class model for pneumonia stages</li>
-                    <li>Applied oversampling, transfer learning (ResNet18)</li>
-                    <li>Flask web application with Docker containerization</li>
+                    <li>Pneumonia Detection Model (PyTorch): Binary classification to detect presence/absence of pneumonia</li>
+                    <li>Stage Classifier (Keras): Multi-class model for pneumonia stages - congestion, red hepatization, grey hepatization, resolution</li>
+                    <li>Applied oversampling to address dataset imbalance and improve model accuracy</li>
+                    <li>Used transfer learning (ResNet18) on the Stanford AIMI mimic-cxr dataset</li>
+                    <li>Built a Flask web application for real-time analysis with Docker containerization</li>
                 </ul>
-                <a href="https://github.com/FridaPrecious/happy_doctors.git" class="project-link-modern" target="_blank">GitHub Repository</a>
+                <a href="https://github.com/FridaPrecious/happy_doctors.git" class="project-link-modern" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer-tech">
         <h2 style="font-family: 'Syne', sans-serif;">Let's Connect</h2>
-        <p>Feel free to reach out for collaborations!</p>
+        <p>Feel free to reach out for collaborations or just to say hello!</p>
         <div class="social-ring">
             <a href="https://linkedin.com/in/precious-anyangu-44a5a326b" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/FridaPrecious" target="_blank"><i class="fab fa-github"></i></a>
@@ -906,43 +824,6 @@
 </div>
 
 <script>
-    function showInstallInstructions() {
-        const modal = document.createElement('div');
-        modal.className = 'instructions-modal';
-        modal.innerHTML = `
-            <div class="modal-content">
-                <h3>How to Install Pixium PWA</h3>
-                
-                <p><strong>On Mobile (Android):</strong></p>
-                <ul class="install-steps">
-                    <li>1. Open pixiumkenya.vercel.app in Chrome or Safari</li>
-                    <li>2. Tap the share button (or three dots menu)</li>
-                    <li>3. Select "Add to Home Screen" or "Install App"</li>
-                    <li>4. Confirm installation</li>
-                </ul>
-                
-                <p><strong>On Desktop (Chrome):</strong></p>
-                <ul class="install-steps">
-                    <li>1. Visit pixiumkenya.vercel.app</li>
-                    <li>2. Look for the install icon in the address bar</li>
-                    <li>3. Click "Install" to add to your taskbar</li>
-                    <li>4. Launch from your device like a native app</li>
-                </ul>
-                
-                <button class="close-modal" onclick="this.closest('.instructions-modal').remove()">Got it</button>
-            </div>
-        `;
-        
-        document.body.appendChild(modal);
-        modal.style.display = 'flex';
-        
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.remove();
-            }
-        });
-    }
-    
     function createBubbles() {
         const bgContainer = document.querySelector('.galaxy-bg');
         const bubbleCount = 45;
