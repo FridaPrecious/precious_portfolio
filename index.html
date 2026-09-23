@@ -617,8 +617,8 @@
                 </div>
                 <div class="tech-card">
                     <i class="fas fa-globe"></i>
-                    <div class="code-snippet">PWA • Interactive Mapping • 3D Visualization</div>
-                    <div style="font-size:0.8rem; margin-top:8px;">React • Leaflet.js • Three.js • Vercel</div>
+                    <div class="code-snippet">RabbitMQ • Microservices • Batch Processing</div>
+                    <div style="font-size:0.8rem; margin-top:8px;">SMS System | Java 21 | Fault Tolerance</div>
                 </div>
             </div>
         </div>
@@ -636,7 +636,7 @@
             <div class="glass-panel reveal">
                 <h3>Full-Stack Developer & AI Engineer</h3>
                 <p>A Computer Science graduate from Jomo Kenyatta University of Agriculture and Technology with experience in full-stack development, front-end engineering, machine learning, and data science. Passionate about creating innovative solutions that solve real-world problems.</p>
-                <p style="margin-top: 1rem;">Professional experience includes developing responsive web interfaces, building full-stack applications with Django REST and vanilla JavaScript, creating PWAs, building chatbots, maintaining websites, conducting data analysis for agricultural research, and creating AI-powered medical imaging solutions.</p>
+                <p style="margin-top: 1rem;">Professional experience includes developing responsive web interfaces, building full-stack applications with Django REST and vanilla JavaScript, creating PWAs, designing distributed microservices with Spring Boot, building chatbots, maintaining websites, conducting data analysis for agricultural research, and creating AI-powered medical imaging solutions.</p>
                 <div class="contact-chip-list">
                     <div class="contact-chip"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</div>
                     <div class="contact-chip"><i class="fas fa-phone"></i> +254 103 487 402</div>
@@ -731,6 +731,12 @@
                 <span class="skill-badge">JWT Auth</span><span class="skill-badge">PostgreSQL</span><span class="skill-badge">SQLite</span><span class="skill-badge">MySQL</span>
                 <span class="skill-badge">Git/GitHub</span><span class="skill-badge">Docker</span><span class="skill-badge">Vercel</span></div>
             </div>
+            <div class="skill-category-modern reveal">
+                <h4><i class="fas fa-cubes"></i> Microservices & Distributed Systems</h4>
+                <div><span class="skill-badge">Java 21</span><span class="skill-badge">Spring Boot</span><span class="skill-badge">Spring AMQP</span><span class="skill-badge">RabbitMQ</span>
+                <span class="skill-badge">Microservices</span><span class="skill-badge">Message Queuing</span><span class="skill-badge">Apache POI</span><span class="skill-badge">Maven</span>
+                <span class="skill-badge">Database-per-Service</span><span class="skill-badge">Fault Tolerance</span></div>
+            </div>
         </div>
     </section>
 
@@ -738,6 +744,44 @@
         <div class="section-header">
             <div class="overline">case studies</div>
             <h2>Featured Projects</h2>
+        </div>
+        
+        <!-- SMS Microservices System Project -->
+        <div class="project-premium reveal">
+            <div class="project-header-premium">
+                <h3>SMS Microservices System <span class="tech-stack-badge">Microservices • Spring Boot • RabbitMQ</span></h3>
+                <p style="color: var(--accent-cyan);">Distributed Bulk SMS Processing | Fault-Tolerant Architecture | Database-per-Service</p>
+            </div>
+            <div class="project-body-premium">
+                <p><strong>Description:</strong> A full-featured microservices application built with Spring Boot and Java 21 for processing bulk SMS messages from Excel uploads. Two independent services (Listener and Sender) communicate asynchronously through RabbitMQ to validate, batch, and deliver messages with fault-tolerant queue persistence.</p>
+                
+                <ul style="margin-left: 1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                    <li><strong>Microservices Architecture:</strong> Two independent Spring Boot services a Listener Service for file upload, validation, and batching, and a Sender Service for message delivery communicating asynchronously via RabbitMQ</li>
+                    <li><strong>Excel Upload and Validation:</strong> Upload and parse Excel files using Apache POI, with Kenyan phone number validation (254-prefix, 12-digit format) and configurable batch grouping of 15 valid messages per batch</li>
+                    <li><strong>Database-per-Service Pattern:</strong> Each microservice maintains its own H2 database, demonstrating loose coupling, independent scalability, and service separation</li>
+                    <li><strong>Fault Tolerance with Queue Persistence:</strong> Messages persist in the RabbitMQ queue even when the Sender Service is offline the system continues accepting uploads and queuing batches with zero message loss until the consumer reconnects</li>
+                    <li><strong>RESTful APIs:</strong> 8+ endpoints for file upload, phone validation, request tracking, and delivery log monitoring with proper HTTP methods and status codes</li>
+                    <li><strong>Batch Processing:</strong> Valid messages grouped into batches of 15 to optimize throughput and reduce per-message communication overhead</li>
+                </ul>
+                
+                <div class="features-box">
+                    <p class="features-title">Technology Stack:</p>
+                    <div class="features-grid">
+                        <span class="feature-item">Java 21</span>
+                        <span class="feature-item">Spring Boot</span>
+                        <span class="feature-item">Spring AMQP</span>
+                        <span class="feature-item">RabbitMQ</span>
+                        <span class="feature-item">Spring Data JPA</span>
+                        <span class="feature-item">Apache POI</span>
+                        <span class="feature-item">H2 Database</span>
+                        <span class="feature-item">Maven</span>
+                    </div>
+                </div>
+                
+                <div class="project-links">
+                    <a href="https://github.com/FridaPrecious/sms_management_system" class="project-link-modern" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                </div>
+            </div>
         </div>
         
         <!-- Employee Management System - Full Stack with Vanilla JS Frontend -->
