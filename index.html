@@ -663,6 +663,16 @@
             <div class="resume-grid-modern">
                 <div class="exp-card reveal">
                     <div class="current-tag">RECENT ROLE</div>
+                    <h3>Software Intern</h3>
+                    <div class="exp-date">Tangazoletu Limited | July 2026 – September 2026</div>
+                    <ul class="exp-list">
+                        <li>Optimized Spring Boot backend services, improving system reliability under high transaction loads</li>
+                        <li>Developed and deployed Angular-based transaction processing systems, reducing support incidents and improving operational efficiency</li>
+                        <li>Migrated mobile apps from Ionic to Flutter, delivering an improved UI/UX that boosted customer engagement</li>
+                        <li>Used AI prompting tools to speed up code reviews, documentation and test generation, shortening development cycles</li>
+                    </ul>
+                </div>
+                <div class="exp-card reveal">
                     <h3>Front-End Developer</h3>
                     <div class="exp-date">Pixium Technologies Africa Limited | October 2025 – March 2026</div>
                     <ul class="exp-list">
@@ -716,20 +726,25 @@
                 <h4><i class="fas fa-code"></i> Front-End Development</h4>
                 <div>
                     <span class="skill-badge">HTML5</span><span class="skill-badge">CSS3</span><span class="skill-badge">JavaScript (ES6+)</span><span class="skill-badge">React</span>
-                    <span class="skill-badge">Vanilla JS</span><span class="skill-badge">Fetch API</span><span class="skill-badge">Tailwind CSS</span>
+                    <span class="skill-badge">Angular</span><span class="skill-badge">Vanilla JS</span><span class="skill-badge">Fetch API</span><span class="skill-badge">Tailwind CSS</span>
                     <span class="skill-badge">PWA</span><span class="skill-badge">Responsive Design</span><span class="skill-badge">Leaflet.js</span><span class="skill-badge">Three.js</span>
                 </div>
             </div>
             <div class="skill-category-modern reveal">
+                <h4><i class="fas fa-mobile-alt"></i> Mobile Development</h4>
+                <div><span class="skill-badge">Flutter</span><span class="skill-badge">Ionic</span><span class="skill-badge">Cross-platform UI</span><span class="skill-badge">Mobile Migration</span></div>
+            </div>
+            <div class="skill-category-modern reveal">
                 <h4><i class="fas fa-brain"></i> Machine Learning & AI</h4>
                 <div><span class="skill-badge">Python</span><span class="skill-badge">Scikit-learn</span><span class="skill-badge">Keras</span><span class="skill-badge">TensorFlow</span>
-                <span class="skill-badge">PyTorch</span><span class="skill-badge">Transfer Learning</span><span class="skill-badge">Computer Vision</span><span class="skill-badge">OpenCV</span></div>
+                <span class="skill-badge">PyTorch</span><span class="skill-badge">Transfer Learning</span><span class="skill-badge">Computer Vision</span><span class="skill-badge">OpenCV</span>
+                <span class="skill-badge">AI Prompting Tools</span></div>
             </div>
             <div class="skill-category-modern reveal">
                 <h4><i class="fas fa-database"></i> Backend & Full-Stack</h4>
-                <div><span class="skill-badge">Django 5.2.5</span><span class="skill-badge">Django REST Framework</span><span class="skill-badge">Flask</span><span class="skill-badge">REST APIs</span>
-                <span class="skill-badge">JWT Auth</span><span class="skill-badge">PostgreSQL</span><span class="skill-badge">SQLite</span><span class="skill-badge">MySQL</span>
-                <span class="skill-badge">Git/GitHub</span><span class="skill-badge">Docker</span><span class="skill-badge">Vercel</span></div>
+                <div><span class="skill-badge">Django 5.2.5</span><span class="skill-badge">Django REST Framework</span><span class="skill-badge">Flask</span><span class="skill-badge">Spring Boot</span>
+                <span class="skill-badge">REST APIs</span><span class="skill-badge">JWT Auth</span><span class="skill-badge">PostgreSQL</span><span class="skill-badge">SQLite</span>
+                <span class="skill-badge">MySQL</span><span class="skill-badge">Git/GitHub</span><span class="skill-badge">Docker</span><span class="skill-badge">Vercel</span></div>
             </div>
             <div class="skill-category-modern reveal">
                 <h4><i class="fas fa-cubes"></i> Microservices & Distributed Systems</h4>
@@ -756,10 +771,10 @@
                 <p><strong>Description:</strong> A full-featured microservices application built with Spring Boot and Java 21 for processing bulk SMS messages from Excel uploads. Two independent services (Listener and Sender) communicate asynchronously through RabbitMQ to validate, batch, and deliver messages with fault-tolerant queue persistence.</p>
                 
                 <ul style="margin-left: 1rem; color: var(--text-secondary); margin-top: 0.5rem;">
-                    <li><strong>Microservices Architecture:</strong> Two independent Spring Boot services a Listener Service for file upload, validation, and batching, and a Sender Service for message delivery communicating asynchronously via RabbitMQ</li>
+                    <li><strong>Microservices Architecture:</strong> Two independent Spring Boot services — a Listener Service for file upload, validation, and batching, and a Sender Service for message delivery — communicating asynchronously via RabbitMQ</li>
                     <li><strong>Excel Upload and Validation:</strong> Upload and parse Excel files using Apache POI, with Kenyan phone number validation (254-prefix, 12-digit format) and configurable batch grouping of 15 valid messages per batch</li>
                     <li><strong>Database-per-Service Pattern:</strong> Each microservice maintains its own H2 database, demonstrating loose coupling, independent scalability, and service separation</li>
-                    <li><strong>Fault Tolerance with Queue Persistence:</strong> Messages persist in the RabbitMQ queue even when the Sender Service is offline the system continues accepting uploads and queuing batches with zero message loss until the consumer reconnects</li>
+                    <li><strong>Fault Tolerance with Queue Persistence:</strong> Messages persist in the RabbitMQ queue even when the Sender Service is offline — the system continues accepting uploads and queuing batches with zero message loss until the consumer reconnects</li>
                     <li><strong>RESTful APIs:</strong> 8+ endpoints for file upload, phone validation, request tracking, and delivery log monitoring with proper HTTP methods and status codes</li>
                     <li><strong>Batch Processing:</strong> Valid messages grouped into batches of 15 to optimize throughput and reduce per-message communication overhead</li>
                 </ul>
