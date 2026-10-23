@@ -3,989 +3,743 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Precious Anyangu | Full-Stack Developer & AI Engineer — Galactic Portfolio</title>
+    <title>Precious Anyangu | Full-Stack Developer & AI Engineer</title>
+    <meta name="description" content="Precious Anyangu is a full-stack developer and AI engineer in Nairobi, building Spring Boot services, Django APIs, production PWAs and computer-vision systems.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Default: Light Mode (Warm Editorial) */
+        :root {
+            --bg-deep: #F8F8F6;
+            --bg-surface: #FFFFFF;
+            --ink: #111111;
+            --muted: #555555;
+            --rule: #E5E5E5;
+            --accent: #0F766E; /* Deep Teal for contrast on white */
+            --accent-glow: rgba(15, 118, 110, 0.1);
+            --grid-line: rgba(0, 0, 0, 0.03);
+            
+            --display: 'Space Grotesk', sans-serif;
+            --body: 'Inter', sans-serif;
+            --mono: 'JetBrains Mono', monospace;
         }
 
-        :root {
-            --bg-deep: #03050B;
-            --bg-elevated: #0A0F1A;
-            --surface-glass: rgba(15, 25, 35, 0.65);
-            --accent-cyan: #2dd4bf;
-            --accent-purple: #a855f7;
-            --accent-gold: #fbbf24;
-            --text-primary: #F1F5F9;
-            --text-secondary: #94A3B8;
-            --border-glow: rgba(45, 212, 191, 0.2);
-            --card-radius: 2rem;
+        /* Dark Mode (Cyber-Editorial) */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-deep: #050505;
+                --bg-surface: #0F1115;
+                --ink: #F4F4F5;
+                --muted: #A1A1AA;
+                --rule: #27272A;
+                --accent: #2dd4bf; /* Cyan */
+                --accent-glow: rgba(45, 212, 191, 0.15);
+                --grid-line: rgba(255, 255, 255, 0.02);
+            }
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-deep);
-            font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
-            line-height: 1.5;
+            color: var(--ink);
+            font-family: var(--body);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        .galaxy-bg {
+        a { color: inherit; text-decoration: none; }
+        a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+        ::selection { background: var(--accent); color: var(--bg-deep); }
+
+        /* --- BACKGROUND EFFECTS --- */
+        .bg-effects {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at 30% 40%, #0a0f1a, #020408);
-            z-index: -3;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            pointer-events: none;
             overflow: hidden;
+        }
+        
+        .grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
         }
 
         .stars {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
+            inset: 0;
             background-image: 
-                radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 60px 170px, #f8f9fa, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 150px 320px, #e6e9f0, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 150px 320px, #fff, rgba(0,0,0,0)),
                 radial-gradient(2px 2px at 280px 80px, #fff, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 420px 500px, #cbd5e6, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 550px 220px, #fff, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 700px 400px, #e2e8f0, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 850px 150px, #fff, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 1000px 550px, #f1f5f9, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 1150px 320px, #fff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 90% 70%, #fff, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 15% 85%, #cbd5e1, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 45% 25%, #fff, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 78% 45%, #f0f4fa, rgba(0,0,0,0));
+                radial-gradient(1px 1px at 700px 400px, #fff, rgba(0,0,0,0));
             background-repeat: no-repeat;
-            background-size: 200px 200px;
-            animation: twinkle 4s ease-in-out infinite alternate;
+            background-size: 300px 300px;
+            opacity: 0.1;
+            animation: twinkle 5s infinite alternate;
+        }
+        @media (prefers-color-scheme: dark) {
+            .stars { opacity: 0.3; }
         }
 
-        @keyframes twinkle {
-            0% { opacity: 0.4; }
-            100% { opacity: 1; }
-        }
-
-        .bubble {
+        @keyframes twinkle { 0% { opacity: 0.1; } 100% { opacity: 0.4; } }
+        
+        .glow-orb {
             position: absolute;
+            width: 40vw; height: 40vw;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(45, 212, 191, 0.15), rgba(168, 85, 247, 0.08));
-            backdrop-filter: blur(2px);
-            pointer-events: none;
-            animation: floatBubble linear infinite;
-            box-shadow: 0 0 20px rgba(45, 212, 191, 0.2);
-            border: 1px solid rgba(45, 212, 191, 0.2);
+            filter: blur(60px);
+            top: -10%; left: -10%;
+            opacity: 0.5;
         }
 
-        .bubble-glow {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(45, 212, 191, 0.08), rgba(168, 85, 247, 0.04));
-            filter: blur(12px);
-            pointer-events: none;
-            animation: floatSlow 25s ease-in-out infinite alternate;
-        }
-
-        @keyframes floatBubble {
-            0% {
-                transform: translateY(100vh) translateX(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% { opacity: 0.5; }
-            90% { opacity: 0.5; }
-            100% {
-                transform: translateY(-20vh) translateX(30px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        @keyframes floatSlow {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.3;
-            }
-            50% {
-                transform: translate(40px, -30px) scale(1.1);
-                opacity: 0.6;
-            }
-            100% {
-                transform: translate(-20px, 20px) scale(0.9);
-                opacity: 0.3;
-            }
-        }
-
-        .nebula-haze {
-            position: absolute;
+        /* --- TOP TICKER --- */
+        .ticker-wrap {
             width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at 70% 30%, rgba(168,85,247,0.08), transparent 60%),
-                        radial-gradient(ellipse at 20% 80%, rgba(45,212,191,0.05), transparent 70%);
-            pointer-events: none;
+            overflow: hidden;
+            background: #111111;
+            color: #888888;
+            padding: 10px 0;
+            font-family: var(--mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-bottom: 1px solid #333;
+            white-space: nowrap;
+            position: relative;
+            z-index: 10;
         }
+        .ticker { display: inline-block; animation: ticker 30s linear infinite; }
+        @keyframes ticker { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
 
-        .content {
+        /* --- LAYOUT --- */
+        .layout {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 80px;
             position: relative;
             z-index: 2;
         }
 
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 2rem;
-        }
-
-        .hero-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 0.9fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-left {
-            animation: fadeUp 0.8s ease;
-        }
-
-        .badge-tech {
-            display: inline-block;
-            background: rgba(45, 212, 191, 0.12);
-            border: 1px solid rgba(45, 212, 191, 0.3);
-            backdrop-filter: blur(4px);
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            color: var(--accent-cyan);
-        }
-
-        .hero-left h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #FFFFFF, var(--accent-cyan), var(--accent-purple));
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 1rem;
-        }
-
-        .hero-tagline {
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: var(--accent-cyan);
-            margin-bottom: 1rem;
-        }
-
-        .hero-desc {
-            color: var(--text-secondary);
-            max-width: 500px;
-            margin-bottom: 2rem;
-            font-size: 1rem;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary-glow {
-            background: linear-gradient(95deg, var(--accent-cyan), var(--accent-purple));
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            color: var(--bg-deep);
-            transition: all 0.25s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 0 12px rgba(45,212,191,0.4);
-        }
-
-        .btn-primary-glow:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 22px rgba(45,212,191,0.7);
-        }
-
-        .btn-outline-tech {
-            border: 1.5px solid var(--accent-cyan);
-            background: transparent;
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            font-weight: 500;
-            text-decoration: none;
-            color: var(--accent-cyan);
-            transition: 0.2s;
-        }
-
-        .btn-outline-tech:hover {
-            background: rgba(45,212,191,0.1);
-            transform: translateY(-2px);
-        }
-
-        .hero-right {
+        /* --- SIDEBAR --- */
+        .side {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            padding: 64px 0 40px;
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            border-right: 1px solid var(--rule);
+            padding-right: 40px;
         }
 
-        .tech-card {
-            background: rgba(10, 15, 26, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(45,212,191,0.2);
-            border-radius: 28px;
-            padding: 1.3rem 1.8rem;
+        /* PROFILE PICTURE STYLES */
+        .profile-pic {
+            width: 140px;
+            height: 170px;
+            object-fit: cover;
+            object-position: center 15%; /* Focuses on your face, not the waist */
+            border-radius: 12px; /* Soft rounded rectangle */
+            margin-bottom: 24px;
+            filter: grayscale(100%) contrast(1.1);
+            border: 1px solid var(--rule);
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .profile-pic:hover {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+            border-color: var(--accent);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .profile-pic {
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            }
+        }
+
+        .side h1 {
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 46px;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            color: var(--ink);
+        }
+
+        .side .role {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .side .pitch {
+            font-size: 15px;
+            color: var(--muted);
+            max-width: 32ch;
+            margin-bottom: 40px;
+        }
+
+        .nav { display: flex; flex-direction: column; gap: 8px; }
+        .nav a {
+            font-family: var(--mono);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 6px 0;
+            transition: all 0.2s;
+        }
+        .nav a:hover, .nav a.active { color: var(--accent); transform: translateX(4px); }
+
+        .side .links {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-family: var(--mono);
+            font-size: 12px;
+        }
+        .side .links a { color: var(--muted); transition: color 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+        .side .links a:hover { color: var(--accent); }
+
+        /* --- MAIN CONTENT --- */
+        main { padding: 80px 0 80px; }
+        section { padding-bottom: 96px; scroll-margin-top: 40px; }
+
+        .label {
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .label::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+
+        .lede {
+            font-family: var(--display);
+            font-size: 32px;
+            line-height: 1.25;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            max-width: 24em;
+            margin-bottom: 24px;
+        }
+
+        .about p {
+            color: var(--muted);
+            max-width: 65ch;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            padding-top: 32px;
+            border-top: 1px solid var(--rule);
+        }
+        .facts dt { font-family: var(--mono); font-size: 11px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+        .facts dd { font-family: var(--display); font-weight: 500; font-size: 16px; line-height: 1.4; }
+        .facts dd span { display: block; font-family: var(--body); font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+        /* --- PROJECTS --- */
+        .project {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 24px;
+            padding: 40px 0;
+            border-top: 1px solid var(--rule);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .project:last-child { border-bottom: 1px solid var(--rule); }
+        
+        .project:hover {
+            background: var(--bg-surface);
+            padding-left: 24px;
+            padding-right: 24px;
+            margin-left: -24px;
+            margin-right: -24px;
+            border-color: transparent;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px -5px rgba(0,0,0,0.05), inset 0 0 0 1px var(--rule);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .project:hover {
+                box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5), inset 0 0 0 1px var(--accent-glow);
+            }
+        }
+
+        .project:hover .no { color: var(--accent); }
+        .project:hover .plinks a { border-color: var(--accent); }
+
+        .project .no {
+            font-family: var(--mono);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--muted);
+            padding-top: 6px;
+            transition: color 0.3s;
+        }
+        .project h3 {
+            font-family: var(--display);
+            font-weight: 600;
+            font-size: 26px;
+            line-height: 1.2;
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
+        .project .sub { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+        .project p.desc { font-size: 15px; max-width: 60ch; margin-bottom: 16px; color: var(--muted); }
+        .project ul { list-style: none; font-size: 14.5px; color: var(--muted); margin-bottom: 24px; }
+        .project li { padding-left: 20px; position: relative; margin-bottom: 6px; }
+        .project li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-family: var(--mono);
+            font-size: 12px;
+            top: 2px;
+        }
+        
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+        .tag {
+            font-family: var(--mono);
+            font-size: 11.5px;
+            background: transparent;
+            border: 1px solid var(--rule);
+            padding: 4px 12px;
+            color: var(--muted);
             transition: all 0.3s;
         }
-
-        .tech-card:hover {
-            border-color: var(--accent-cyan);
-            transform: translateX(6px);
+        
+        .plinks { display: flex; gap: 24px; font-family: var(--mono); font-size: 13px; font-weight: 700; }
+        .plinks a {
+            color: var(--accent);
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
+        .plinks a:hover { border-color: var(--accent); }
 
-        .tech-card i {
-            font-size: 1.8rem;
-            color: var(--accent-cyan);
-            margin-bottom: 0.6rem;
-        }
-
-        .code-snippet {
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: #8bb4b0;
-        }
-
-        .section {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header .overline {
-            color: var(--accent-cyan);
-            letter-spacing: 3px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .section-header h2 {
-            font-family: 'Syne', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #fff, var(--accent-cyan));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .about-grid {
+        /* --- EXPERIENCE --- */
+        .job {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: 180px 1fr;
+            gap: 32px;
+            padding: 32px 0;
+            border-top: 1px solid var(--rule);
         }
+        .job:last-child { border-bottom: 1px solid var(--rule); }
+        .job .when { font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 4px; }
+        .job h3 { font-family: var(--display); font-size: 20px; font-weight: 600; line-height: 1.3; }
+        .job .org { font-family: var(--mono); font-size: 13px; color: var(--accent); margin-bottom: 12px; }
+        .job ul { list-style: none; color: var(--muted); font-size: 14.5px; max-width: 62ch; }
+        .job li { padding-left: 20px; position: relative; margin-bottom: 6px; }
+        .job li::before { content: "—"; position: absolute; left: 0; color: var(--rule); }
 
-        .glass-panel {
-            background: rgba(10, 15, 26, 0.55);
-            backdrop-filter: blur(14px);
-            border-radius: 2rem;
-            border: 1px solid rgba(45,212,191,0.15);
-            padding: 2rem;
-            transition: 0.25s;
-        }
-
-        .glass-panel h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            font-family: 'Syne', sans-serif;
-            color: var(--accent-cyan);
-        }
-
-        .contact-chip-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .contact-chip {
-            background: rgba(45,212,191,0.1);
-            border-radius: 40px;
-            padding: 0.5rem 1rem;
-            font-size: 0.85rem;
+        /* --- SKILLS --- */
+        .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+        .skill { padding: 24px 0; border-top: 1px solid var(--rule); }
+        .skill h4 {
+            font-family: var(--mono);
+            font-size: 12px;
+            text-transform: uppercase;
+            color: var(--ink);
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
+        .skill h4::before { content: ""; display: block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+        .skill p { font-size: 15px; color: var(--muted); line-height: 1.6; }
 
-        .resume-grid-modern {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 1.8rem;
-        }
-
-        .exp-card {
-            background: rgba(10, 15, 26, 0.65);
-            backdrop-filter: blur(10px);
-            border-radius: 1.8rem;
-            padding: 1.6rem;
-            border: 1px solid rgba(45,212,191,0.1);
-            transition: 0.25s;
-        }
-
-        .exp-card:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-5px);
-        }
-
-        .exp-card h3 {
-            font-size: 1.3rem;
-            margin: 0.3rem 0 0.2rem;
-        }
-
-        .exp-date {
-            font-size: 0.75rem;
-            color: var(--accent-cyan);
-            margin-bottom: 1rem;
-        }
-
-        .exp-list {
-            list-style: none;
-        }
-
-        .exp-list li {
-            font-size: 0.85rem;
-            margin-bottom: 0.6rem;
-            padding-left: 1.2rem;
-            position: relative;
-            color: var(--text-secondary);
-        }
-
-        .exp-list li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--accent-cyan);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category-modern {
-            background: rgba(10, 15, 26, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 1.8rem;
-            padding: 1.6rem;
-            border: 1px solid rgba(45,212,191,0.1);
-        }
-
-        .skill-badge {
-            background: rgba(45,212,191,0.12);
-            color: #b9f3ec;
-            padding: 0.4rem 1rem;
-            border-radius: 40px;
-            font-size: 0.75rem;
+        /* --- CONTACT --- */
+        .contact h2 {
+            font-family: var(--display);
             font-weight: 500;
-            display: inline-block;
-            margin: 0.2rem;
+            font-size: 48px;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            max-width: 14em;
+            margin-bottom: 40px;
         }
-
-        .project-premium {
-            background: rgba(10, 15, 26, 0.7);
-            backdrop-filter: blur(12px);
-            border-radius: 2rem;
-            margin-bottom: 2rem;
-            overflow: hidden;
-            border: 1px solid rgba(45,212,191,0.15);
-            transition: all 0.3s;
+        .contact h2 a {
+            color: inherit;
+            transition: color 0.2s;
         }
-
-        .project-premium:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-6px);
+        .contact h2 a:hover {
+            color: var(--accent);
         }
-
-        .project-header-premium {
-            padding: 1.8rem 2rem 0.5rem 2rem;
-            background: linear-gradient(120deg, rgba(45,212,191,0.05), transparent);
-        }
-
-        .project-header-premium h3 {
-            font-size: 1.7rem;
-            font-family: 'Syne', sans-serif;
-        }
-
-        .project-body-premium {
-            padding: 0.5rem 2rem 2rem 2rem;
-        }
-
-        .project-link-modern {
-            color: var(--accent-cyan);
-            text-decoration: none;
-            font-weight: 500;
-            margin-right: 1.5rem;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-
-        .tech-stack-badge {
-            display: inline-block;
-            background: rgba(45,212,191,0.2);
-            border: 1px solid var(--accent-cyan);
-            border-radius: 20px;
-            padding: 0.2rem 0.8rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-left: 1rem;
-            vertical-align: middle;
-            color: var(--accent-cyan);
-        }
-
-        .features-box {
-            background: rgba(45,212,191,0.05);
-            border-radius: 1rem;
-            padding: 1rem;
-            margin: 1rem 0;
-            border: 1px solid rgba(45,212,191,0.1);
-        }
-
-        .features-title {
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--accent-cyan);
-        }
-
-        .features-grid {
+        .contact .meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 16px 32px;
+            font-family: var(--mono);
+            font-size: 13px;
+            padding: 24px;
+            border: 1px solid var(--rule);
+            background: var(--bg-surface);
+            border-radius: 8px;
         }
+        .contact .meta a:hover { color: var(--accent); }
 
-        .feature-item {
-            background: rgba(45,212,191,0.08);
-            border-radius: 15px;
-            padding: 0.2rem 0.7rem;
-            font-size: 0.7rem;
-            color: var(--text-primary);
-        }
-
-        .project-links {
+        footer {
+            margin-top: 96px;
+            padding-top: 24px;
+            border-top: 1px solid var(--rule);
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--muted);
             display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-            align-items: center;
+            justify-content: space-between;
+            text-transform: uppercase;
         }
 
-        .footer-tech {
-            background: rgba(3, 5, 11, 0.85);
-            backdrop-filter: blur(12px);
-            border-top: 1px solid rgba(45,212,191,0.2);
-            padding: 3rem 2rem;
-            text-align: center;
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.in { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+            html { scroll-behavior: auto; }
+            .ticker { animation: none; }
+            .stars { animation: none; }
         }
 
-        .social-ring {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1.5rem 0;
-        }
-
-        .social-ring a {
-            font-size: 1.6rem;
-            color: var(--text-secondary);
-            transition: 0.2s;
-        }
-
-        .social-ring a:hover {
-            color: var(--accent-cyan);
-            transform: scale(1.1);
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px);}
-            to { opacity: 1; transform: translateY(0);}
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
-            50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
-        }
-
-        @media (max-width: 900px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-            .hero-left h1 {
-                font-size: 3rem;
-            }
-            .btn-group {
-                justify-content: center;
-            }
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .section-header h2 {
-                font-size: 2rem;
-            }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: all 0.7s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .layout { grid-template-columns: 1fr; gap: 0; padding: 0 24px; }
+            .side { position: static; height: auto; padding: 48px 0 32px; border-right: none; border-bottom: 1px solid var(--rule); flex-direction: row; flex-wrap: wrap; align-items: center; gap: 24px; }
+            .profile-pic { width: 100px; height: 120px; margin-bottom: 0; }
+            .side h1 { font-size: 36px; margin-bottom: 4px; }
+            .side .role { font-size: 12px; margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+            .side .pitch { display: none; /* Hide on mobile to save space */ }
+            .nav { flex-direction: row; flex-wrap: wrap; gap: 16px; margin-top: 16px; width: 100%; }
+            .side .links { flex-direction: row; gap: 20px; margin-top: 16px; width: 100%; }
+            main { padding-top: 48px; }
+            .facts { grid-template-columns: 1fr; gap: 24px; }
+            .skills { grid-template-columns: 1fr; }
+            .job { grid-template-columns: 1fr; gap: 8px; }
+            .project { grid-template-columns: 1fr; gap: 12px; }
+            .project .no { padding: 0; margin-bottom: 8px; }
+            .project:hover { margin-left: -16px; margin-right: -16px; padding-left: 16px; padding-right: 16px; }
+            .lede { font-size: 26px; }
+            .contact h2 { font-size: 36px; }
+            footer { flex-direction: column; gap: 8px; }
         }
     </style>
 </head>
 <body>
 
-<div class="galaxy-bg">
+<!-- Background Effects -->
+<div class="bg-effects">
+    <div class="grid-overlay"></div>
     <div class="stars"></div>
-    <div class="nebula-haze"></div>
+    <div class="glow-orb" style="top: 40%; left: 80%; width: 30vw; height: 30vw; opacity: 0.3;"></div>
 </div>
 
-<div class="content">
-    <section class="hero-section">
-        <div class="hero-container">
-            <div class="hero-left">
-                <div class="badge-tech">&lt;fullstack_architect /&gt; & AI_engineer</div>
-                <h1>Precious Anyangu</h1>
-                <div class="hero-tagline">Full-Stack Developer & AI Engineer</div>
-                <p class="hero-desc">Passionate about building efficient software solutions and improving user experience through technology. Specializing in full-stack development, machine learning, and data science.</p>
-                <div class="btn-group">
-                    <a href="#resume" class="btn-primary-glow"><i class="fas fa-arrow-down"></i> Explore Resume</a>
-                    <a href="#projects" class="btn-outline-tech"><i class="fas fa-code-branch"></i> Featured Work</a>
-                </div>
-            </div>
-            <div class="hero-right">
-                <div class="tech-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <div class="code-snippet">Full-Stack • Django REST • Vanilla JS • SQLite/PostgreSQL</div>
-                    <div style="font-size:0.8rem; margin-top:8px;">Employee Management System | CRUD | JWT</div>
-                </div>
-                <div class="tech-card">
-                    <i class="fas fa-brain"></i>
-                    <div class="code-snippet">Deep Learning • Pneumonia Detection • Stage Classification</div>
-                    <div style="font-size:0.8rem; margin-top:8px;">PyTorch • TensorFlow • OpenCV</div>
-                </div>
-                <div class="tech-card">
-                    <i class="fas fa-globe"></i>
-                    <div class="code-snippet">RabbitMQ • Microservices • Batch Processing</div>
-                    <div style="font-size:0.8rem; margin-top:8px;">SMS System | Java 21 | Fault Tolerance</div>
-                </div>
-            </div>
-        </div>
-        <div style="position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); color: var(--accent-cyan); font-size: 1.2rem; animation: bounce 2s infinite;">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
+<div class="ticker-wrap">
+    <div class="ticker">
+        <span>SYSTEM STATUS: ONLINE &nbsp;•&nbsp; FULL-STACK DEVELOPER &nbsp;•&nbsp; AI ENGINEER &nbsp;•&nbsp; NAIROBI, KENYA &nbsp;•&nbsp; SPRING BOOT / DJANGO / REACT &nbsp;•&nbsp; SYSTEM STATUS: ONLINE &nbsp;•&nbsp; FULL-STACK DEVELOPER &nbsp;•&nbsp; AI ENGINEER &nbsp;•&nbsp; NAIROBI, KENYA &nbsp;•&nbsp; SPRING BOOT / DJANGO / REACT &nbsp;•&nbsp;</span>
+    </div>
+</div>
 
-    <section id="about" class="section">
-        <div class="section-header">
-            <div class="overline">// about me</div>
-            <h2>Enthusiastic & detail-oriented</h2>
-        </div>
-        <div class="about-grid">
-            <div class="glass-panel reveal">
-                <h3>Full-Stack Developer & AI Engineer</h3>
-                <p>A Computer Science graduate from Jomo Kenyatta University of Agriculture and Technology with experience in full-stack development, front-end engineering, machine learning, and data science. Passionate about creating innovative solutions that solve real-world problems.</p>
-                <p style="margin-top: 1rem;">Professional experience includes developing responsive web interfaces, building full-stack applications with Django REST and vanilla JavaScript, shipping Progressive Web Apps to production on custom domains, designing distributed microservices with Spring Boot, building chatbots, maintaining websites, conducting data analysis for agricultural research, and creating AI-powered medical imaging solutions.</p>
-                <div class="contact-chip-list">
-                    <div class="contact-chip"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</div>
-                    <div class="contact-chip"><i class="fas fa-phone"></i> +254 103 487 402</div>
-                    <div class="contact-chip"><i class="fas fa-envelope"></i> anyanguprecious@gmail.com</div>
-                </div>
-            </div>
-            <div class="glass-panel reveal">
-                <h3>Education & Credentials</h3>
-                <p><strong>Jomo Kenyatta University of Agriculture and Technology (JKUAT)</strong><br>
-                Bachelor of Science in Computer Science - Second Class Upper Division | <em>Sep 2021 – Dec 2025</em><br>
-                <span style="font-size: 0.9rem; color: var(--text-secondary); display: inline-block; margin-top: 0.5rem;">College of Applied Sciences, School of Computing and IT. Developed a strong foundation in software engineering, algorithms, database management, and artificial intelligence.</span></p>
-                
-                <h3 style="margin-top: 1.5rem; font-size: 1.3rem;">Certification</h3>
-                <p><strong>Microsoft Azure Fundamentals</strong> - Issued June 2023</p>
-                
-                <h3 style="margin-top: 1.5rem; font-size: 1.3rem;">Languages</h3>
-                <p>English, Kiswahili (Proficient in oral, written, and technical communication)</p>
-            </div>
-        </div>
-    </section>
+<div class="layout">
 
-    <section id="resume" style="background: rgba(0,0,0,0.2);">
-        <div class="section">
-            <div class="section-header">
-                <div class="overline">professional trajectory</div>
-                <h2>Work Experience</h2>
-            </div>
-            <div class="resume-grid-modern">
-                <!-- NouriValink Current Role -->
-                <div class="exp-card reveal">
-                    <h3>System Administrator</h3>
-                    <div class="exp-date">NouriValink | Present</div>
-                    <ul class="exp-list">
-                        <li>Manage the end-to-end technical infrastructure and digital presence for NouriValink</li>
-                        <li>Oversee the complete technical stack, ensuring high availability, security, and smooth operation of the application infrastructure</li>
-                        <li>Maintain, update, and optimize the NouriValink Progressive Web App (PWA), ensuring a seamless, offline-ready experience for users</li>
-                        <li>Handle domain registration, DNS configuration, SSL/TLS certificates, and routing to ensure secure and reliable access to the platform</li>
-                        <li>Configure and manage corporate email systems, including setting up SPF, DKIM, and DMARC protocols to ensure high deliverability and domain security</li>
-                    </ul>
-                </div>
-                
-                <!-- Tangazoletu Graduate Trainee -->
-                <div class="exp-card reveal">
-                    <h3>Graduate Trainee</h3>
-                    <div class="exp-date">Tangazoletu Limited | July 2026 – September 2026</div>
-                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.8rem;">
-                        Participated in an intensive training program focused on software development within the Fintech sector. Gained hands-on experience with Java and Spring Boot while working within an Agile framework.
-                    </p>
-                    <ul class="exp-list">
-                        <li><strong>Fintech Development:</strong> Built and tested backend applications using Java and Spring Boot, focusing on financial technology solutions.</li>
-                        <li><strong>Agile Methodology:</strong> Actively participated in daily stand-up meetings, sprint planning, and retrospectives to ensure continuous delivery.</li>
-                        <li><strong>Technical Assessment:</strong> Successfully completed multiple coding assessments and technical challenges to validate development skills.</li>
-                        <li><strong>Collaboration:</strong> Worked closely with the engineering team to understand production-level workflows and code standards.</li>
-                    </ul>
-                </div>
-                
-                <div class="exp-card reveal">
-                    <h3>Front-End Developer</h3>
-                    <div class="exp-date">Pixium Technologies Africa Limited | October 2025 – March 2026</div>
-                    <ul class="exp-list">
-                        <li>Convert UI/UX designs into clean, responsive web pages ensuring consistency and cross-browser compatibility</li>
-                        <li>Develop interfaces using HTML, CSS, JavaScript, and React. Integrate APIs and backend services into the front-end</li>
-                        <li>Successfully converted website to Progressive Web App (PWA) with offline capabilities and installable features</li>
-                        <li>Conduct UI testing, debug issues, and ensure performance optimization</li>
-                        <li>Use Git/GitHub for code management and collaborate with designers and backend teams</li>
-                    </ul>
-                </div>
-                
-                <div class="exp-card reveal">
-                    <h3>Data Collection Enumerator</h3>
-                    <div class="exp-date">Research Project, University of Nairobi | May 2025 – January 2026</div>
-                    <ul class="exp-list">
-                        <li>Engage with avocado farmers in Murang'a and Kiambu counties, conducting face-to-face interviews</li>
-                        <li>Build trust quickly with diverse individuals, enhancing communication and interpersonal skills</li>
-                        <li>Record and organize data efficiently demonstrating attention to detail and reliability</li>
-                    </ul>
-                </div>
-                
-                <div class="exp-card reveal">
-                    <h3>Software Engineer Intern</h3>
-                    <div class="exp-date">Kenya Agricultural & Livestock Research Organization (KALRO) | May 2024 – December 2024</div>
-                    <ul class="exp-list">
-                        <li>Supported Kenya Agricultural Observatory Platform (KAOP) - real-time digital platform for farmers</li>
-                        <li>Diagnosed and resolved data synchronization issues, improving real-time data update speeds by 30%</li>
-                        <li>Analyzed server logs, APIs, and system diagnostics to identify root causes of dashboard data delays</li>
-                        <li>Created technical troubleshooting guides for field officers</li>
-                        <li>Performed data analysis on plant disease trends and seedling orders</li>
-                    </ul>
-                </div>
-                
-                <div class="exp-card reveal">
-                    <h3>Sales and Merchandising Assistant</h3>
-                    <div class="exp-date">Independent Contractor | Jan 2022 – May 2024</div>
-                    <ul class="exp-list">
-                        <li>Promoted and displayed products such as Dettol, Nivea, and Indomie in major supermarkets</li>
-                        <li>Ensured proper stock placement, visibility, and branding to attract customer attention</li>
-                        <li>Built positive relationships with store managers and customers</li>
-                    </ul>
-                </div>
-            </div>
+    <header class="side">
+        <!-- ADD YOUR PHOTO HERE -->
+        <!-- Make sure to save the image as "headshot.jpg" in the same folder -->
+        <img src="headshot.jpg" alt="Precious Anyangu" class="profile-pic">
+        
+        <h1>Precious<br>Anyangu</h1>
+        <div class="role">Full-Stack Dev / AI Engineer</div>
+        <p class="pitch">I build dependable software, from message-driven backend services to installable web apps and computer-vision models.</p>
+        
+        <nav class="nav" aria-label="Sections">
+            <a href="#about" class="active">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#stack">Stack</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        
+        <div class="links">
+            <a href="https://github.com/FridaPrecious" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com/in/precious-anyangu-44a5a326b" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="mailto:anyanguprecious@gmail.com"><i class="fas fa-envelope"></i> Email</a>
         </div>
-    </section>
+    </header>
 
-    <section id="skills" class="section">
-        <div class="section-header">
-            <div class="overline">technical arsenal</div>
-            <h2>Skills & Technologies</h2>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-category-modern reveal">
-                <h4><i class="fas fa-code"></i> Front-End Development</h4>
+    <main>
+        <section id="about" class="about reveal">
+            <div class="label">About</div>
+            <p class="lede">Computer Science graduate who ships production software across the stack, and who is just as comfortable training a model as configuring DNS.</p>
+            <p>I graduated from JKUAT in 2025 and have since worked on agricultural data platforms, fintech backends and client-facing web products. I like owning things end to end: designing the interface, building the API, deploying it, and keeping it running afterwards.</p>
+            
+            <dl class="facts">
                 <div>
-                    <span class="skill-badge">HTML5</span><span class="skill-badge">CSS3</span><span class="skill-badge">JavaScript (ES6+)</span><span class="skill-badge">React</span>
-                    <span class="skill-badge">Angular</span><span class="skill-badge">Vanilla JS</span><span class="skill-badge">Fetch API</span><span class="skill-badge">Tailwind CSS</span>
-                    <span class="skill-badge">PWA</span><span class="skill-badge">Responsive Design</span><span class="skill-badge">Leaflet.js</span><span class="skill-badge">Three.js</span>
+                    <dt>Education</dt>
+                    <dd>BSc Computer Science<span>JKUAT, Second Class Upper, 2021–2025</span></dd>
                 </div>
-            </div>
-            <div class="skill-category-modern reveal">
-                <h4><i class="fas fa-mobile-alt"></i> Mobile Development</h4>
-                <div><span class="skill-badge">Flutter</span><span class="skill-badge">Ionic</span><span class="skill-badge">Cross-platform UI</span><span class="skill-badge">Mobile Migration</span></div>
-            </div>
-            <div class="skill-category-modern reveal">
-                <h4><i class="fas fa-brain"></i> Machine Learning & AI</h4>
-                <div><span class="skill-badge">Python</span><span class="skill-badge">Scikit-learn</span><span class="skill-badge">Keras</span><span class="skill-badge">TensorFlow</span>
-                <span class="skill-badge">PyTorch</span><span class="skill-badge">Transfer Learning</span><span class="skill-badge">Computer Vision</span><span class="skill-badge">OpenCV</span>
-                <span class="skill-badge">AI Prompting Tools</span></div>
-            </div>
-            <div class="skill-category-modern reveal">
-                <h4><i class="fas fa-database"></i> Backend & Full-Stack</h4>
-                <div><span class="skill-badge">Django 5.2.5</span><span class="skill-badge">Django REST Framework</span><span class="skill-badge">Flask</span><span class="skill-badge">Spring Boot</span>
-                <span class="skill-badge">REST APIs</span><span class="skill-badge">JWT Auth</span><span class="skill-badge">PostgreSQL</span><span class="skill-badge">SQLite</span>
-                <span class="skill-badge">MySQL</span><span class="skill-badge">Git/GitHub</span><span class="skill-badge">Docker</span><span class="skill-badge">Vercel</span></div>
-            </div>
-            <div class="skill-category-modern reveal">
-                <h4><i class="fas fa-cubes"></i> Microservices & Systems</h4>
-                <div><span class="skill-badge">Java 21</span><span class="skill-badge">Spring Boot</span><span class="skill-badge">Spring AMQP</span><span class="skill-badge">RabbitMQ</span>
-                <span class="skill-badge">Microservices</span><span class="skill-badge">Message Queuing</span><span class="skill-badge">Apache POI</span><span class="skill-badge">Maven</span>
-                <span class="skill-badge">DNS & Domain Mgmt</span><span class="skill-badge">Email Security (SPF/DKIM)</span></div>
-            </div>
-        </div>
-    </section>
+                <div>
+                    <dt>Certification</dt>
+                    <dd>Azure Fundamentals<span>Microsoft, June 2023</span></dd>
+                </div>
+                <div>
+                    <dt>Languages</dt>
+                    <dd>English, Kiswahili<span>Spoken, written, technical</span></dd>
+                </div>
+            </dl>
+        </section>
 
-    <section id="projects" class="section">
-        <div class="section-header">
-            <div class="overline">case studies</div>
-            <h2>Featured Projects</h2>
-        </div>
-        
-        <!-- NouriValink - PWA -->
-        <div class="project-premium reveal">
-            <div class="project-header-premium">
-                <h3>NouriValink <span class="tech-stack-badge">PWA • Full-Stack • Custom Domain</span></h3>
-                <p style="color: var(--accent-cyan);">Progressive Web App | Installable | Offline-Ready Experience</p>
-            </div>
-            <div class="project-body-premium">
-                <p><strong>Description:</strong> A production Progressive Web App (PWA) designed, developed, and deployed end-to-end to a live custom domain. Built independently from concept through launch, featuring installable native-like behavior, offline support, and a responsive interface — covering UI design, backend integration, PWA implementation, and ongoing maintenance.</p>
-                
-                <ul style="margin-left: 1rem; color: var(--text-secondary); margin-top: 0.5rem;">
-                    <li><strong>Progressive Web App:</strong> Full PWA implementation with web app manifest, service workers, install prompts, and standalone display mode for a native-app experience</li>
-                    <li><strong>Offline Capability:</strong> Service worker caching strategy enables the app to load and function reliably even with poor or no network connectivity</li>
-                    <li><strong>End-to-End Ownership:</strong> Independently designed, built, and shipped the application from concept to a live production environment serving real users</li>
-                    <li><strong>Responsive Front-End:</strong> Mobile-first, accessible interface that maintains consistent experience across desktop, tablet, and mobile devices</li>
-                    <li><strong>Full-Stack Integration:</strong> Connected the front-end to backend services with clean API design, form handling, and data validation</li>
-                    <li><strong>Custom Domain Deployment:</strong> Configured DNS, SSL/TLS, and production hosting with proper caching headers to serve the PWA on a branded custom domain</li>
-                    <li><strong>Continuous Iteration:</strong> Maintains and iterates on the live application based on user feedback and evolving requirements</li>
-                </ul>
-                
-                <div class="project-links">
-                    <a href="https://nourivalink.com" class="project-link-modern" target="_blank"><i class="fas fa-external-link-alt"></i> Visit NouriValink</a>
+        <section id="projects" class="reveal">
+            <div class="label">Featured projects</div>
+
+            <article class="project">
+                <div class="no">01</div>
+                <div>
+                    <h3>NouriValink</h3>
+                    <div class="sub">Production PWA on a custom domain</div>
+                    <p class="desc">An installable, offline-ready web app that I designed, built, deployed and now maintain for real users, from first concept to live domain.</p>
+                    <ul>
+                        <li>Service-worker caching so the app loads and works on poor or no connectivity</li>
+                        <li>Manifest, install prompts and standalone display for a native-app feel</li>
+                        <li>DNS, SSL/TLS and production hosting with correct caching headers</li>
+                    </ul>
+                    <div class="tags"><span class="tag">PWA</span><span class="tag">Service Workers</span><span class="tag">DNS & TLS</span></div>
+                    <div class="plinks"><a href="https://nourivalink.com" target="_blank" rel="noopener">Visit site ↗</a></div>
                 </div>
-            </div>
-        </div>
-        
-        <!-- SMS Microservices System Project -->
-        <div class="project-premium reveal">
-            <div class="project-header-premium">
-                <h3>SMS Microservices System <span class="tech-stack-badge">Microservices • Spring Boot • RabbitMQ</span></h3>
-                <p style="color: var(--accent-cyan);">Distributed Bulk SMS Processing | Fault-Tolerant Architecture | Database-per-Service</p>
-            </div>
-            <div class="project-body-premium">
-                <p><strong>Description:</strong> A full-featured microservices application built with Spring Boot and Java 21 for processing bulk SMS messages from Excel uploads. Two independent services (Listener and Sender) communicate asynchronously through RabbitMQ to validate, batch, and deliver messages with fault-tolerant queue persistence.</p>
-                
-                <ul style="margin-left: 1rem; color: var(--text-secondary); margin-top: 0.5rem;">
-                    <li><strong>Microservices Architecture:</strong> Two independent Spring Boot services — a Listener Service for file upload, validation, and batching, and a Sender Service for message delivery — communicating asynchronously via RabbitMQ</li>
-                    <li><strong>Excel Upload and Validation:</strong> Upload and parse Excel files using Apache POI, with Kenyan phone number validation (254-prefix, 12-digit format) and configurable batch grouping of 15 valid messages per batch</li>
-                    <li><strong>Database-per-Service Pattern:</strong> Each microservice maintains its own H2 database, demonstrating loose coupling, independent scalability, and service separation</li>
-                    <li><strong>Fault Tolerance with Queue Persistence:</strong> Messages persist in the RabbitMQ queue even when the Sender Service is offline — the system continues accepting uploads and queuing batches with zero message loss until the consumer reconnects</li>
-                    <li><strong>RESTful APIs:</strong> 8+ endpoints for file upload, phone validation, request tracking, and delivery log monitoring with proper HTTP methods and status codes</li>
-                    <li><strong>Batch Processing:</strong> Valid messages grouped into batches of 15 to optimize throughput and reduce per-message communication overhead</li>
-                </ul>
-                
-                <div class="features-box">
-                    <p class="features-title">Technology Stack:</p>
-                    <div class="features-grid">
-                        <span class="feature-item">Java 21</span>
-                        <span class="feature-item">Spring Boot</span>
-                        <span class="feature-item">Spring AMQP</span>
-                        <span class="feature-item">RabbitMQ</span>
-                        <span class="feature-item">Spring Data JPA</span>
-                        <span class="feature-item">Apache POI</span>
-                        <span class="feature-item">H2 Database</span>
-                        <span class="feature-item">Maven</span>
+            </article>
+
+            <article class="project">
+                <div class="no">02</div>
+                <div>
+                    <h3>SMS Microservices System</h3>
+                    <div class="sub">Distributed bulk-SMS processing</div>
+                    <p class="desc">Two independent Spring Boot services (a Listener and a Sender) that validate, batch and deliver SMS from Excel uploads, linked through RabbitMQ.</p>
+                    <ul>
+                        <li>Queue persistence means uploads keep being accepted with no message loss while the Sender is offline</li>
+                        <li>Kenyan number validation (254 prefix, 12 digits) and batches of 15 valid messages</li>
+                        <li>Database-per-service design with 8+ REST endpoints for tracking and delivery logs</li>
+                    </ul>
+                    <div class="tags"><span class="tag">Java 21</span><span class="tag">Spring Boot</span><span class="tag">RabbitMQ</span><span class="tag">H2</span></div>
+                    <div class="plinks"><a href="https://github.com/FridaPrecious/sms_management_system" target="_blank" rel="noopener">Source code ↗</a></div>
+                </div>
+            </article>
+
+            <article class="project">
+                <div class="no">03</div>
+                <div>
+                    <h3>Pneumonia Detection & Staging</h3>
+                    <div class="sub">Deep learning on chest X-rays</div>
+                    <p class="desc">A three-model pipeline that checks an upload is a chest X-ray, detects pneumonia, then classifies its stage. Served through a Dockerised Flask app.</p>
+                    <ul>
+                        <li>Keras verification model, PyTorch detector (ResNet18 transfer learning) and Keras stage classifier</li>
+                        <li>Stages: congestion, red hepatization, grey hepatization, resolution</li>
+                        <li>Oversampling to handle class imbalance in the training data</li>
+                    </ul>
+                    <div class="tags"><span class="tag">PyTorch</span><span class="tag">Keras</span><span class="tag">Flask</span><span class="tag">Docker</span></div>
+                    <div class="plinks"><a href="https://github.com/FridaPrecious/happy_doctors.git" target="_blank" rel="noopener">Source code ↗</a></div>
+                </div>
+            </article>
+
+            <article class="project">
+                <div class="no">04</div>
+                <div>
+                    <h3>Employee Management System</h3>
+                    <div class="sub">HR platform, Django REST + vanilla JS</div>
+                    <p class="desc">A layered CRUD application with a dark, responsive interface for managing employee records, with thorough validation and search.</p>
+                    <ul>
+                        <li>Controller, service and repository layers with global, consistent error handling</li>
+                        <li>Email typo detection, unique-email enforcement and salary validation</li>
+                        <li>Live stats dashboard, multi-field search, inline editing and KSh formatting</li>
+                    </ul>
+                    <div class="tags"><span class="tag">Django REST</span><span class="tag">JavaScript</span><span class="tag">PostgreSQL</span></div>
+                    <div class="plinks"><a href="https://github.com/FridaPrecious/employee_management_system.git" target="_blank" rel="noopener">Source code ↗</a></div>
+                </div>
+            </article>
+
+            <article class="project">
+                <div class="no">05</div>
+                <div>
+                    <h3>Pixium Kenya Website</h3>
+                    <div class="sub">React PWA with mapping and 3D</div>
+                    <p class="desc">The company's official site, installable and working offline, with a store locator and interactive product views.</p>
+                    <ul>
+                        <li>Leaflet.js store locator for finding nearby shops and distributors</li>
+                        <li>Three.js 3D product rotation and an API-connected contact form</li>
+                    </ul>
+                    <div class="tags"><span class="tag">React</span><span class="tag">PWA</span><span class="tag">Leaflet.js</span></div>
+                    <div class="plinks">
+                        <a href="https://pixiumkenya.vercel.app/" target="_blank" rel="noopener">Live site ↗</a>
+                        <a href="https://github.com/FridaPrecious/website" target="_blank" rel="noopener">Source ↗</a>
                     </div>
                 </div>
-                
-                <div class="project-links">
-                    <a href="https://github.com/FridaPrecious/sms_management_system" class="project-link-modern" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Employee Management System - Full Stack with Vanilla JS Frontend -->
-        <div class="project-premium reveal">
-            <div class="project-header-premium">
-                <h3>Employee Management System <span class="tech-stack-badge">Full-Stack • Django REST • Vanilla JS</span></h3>
-                <p style="color: var(--accent-cyan);">Complete HR Management Platform | CRUD Operations | Production-Ready</p>
-            </div>
-            <div class="project-body-premium">
-                <p><strong>Description:</strong> A system for HR to manage employee information. A full-featured, production-ready employee management system built with Django REST Framework and modern web technologies. This application provides complete CRUD operations with robust validation, search functionality, and a sleek dark-themed user interface.</p>
-                
-                <ul style="margin-left: 1rem; color: var(--text-secondary); margin-top: 0.5rem;">
-                    <li><strong>Backend Features:</strong> Complete CRUD operations, RESTful API with proper HTTP methods, layered architecture (Controller, Service, Repository layers), comprehensive validation including email format with typo detection, required field validation, unique email enforcement, and salary validation (> zero)</li>
-                    <li><strong>Custom Database Queries:</strong> Filter employees by department, filter employees by salary threshold</li>
-                    <li><strong>Global Exception Handling:</strong> Consistent error response format with meaningful messages</li>
-                    <li><strong>Frontend Features:</strong> Modern dark-themed UI, fully responsive design, real-time statistics dashboard (total employees, department count, average salary), advanced search by ID/name/email/department, modal views for employee details, inline editing without page refresh, instant feedback messages, and Kenyan Shilling (KSH) currency format</li>
-                    <li><strong>Security & Error Handling:</strong> Input sanitization, comprehensive user-friendly error messages, duplicate detection, and graceful handling of server connection issues</li>
-                </ul>
-                
-                <div class="project-links">
-                    <a href="https://github.com/FridaPrecious/employee_management_system.git" class="project-link-modern" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Pixium Kenya PWA Project -->
-        <div class="project-premium reveal">
-            <div class="project-header-premium">
-                <h3>Pixium Kenya Website <span class="tech-stack-badge">PWA • React</span></h3>
-                <p style="color: var(--accent-cyan);">Official Website | Progressive Web App | Installable</p>
-            </div>
-            <div class="project-body-premium">
-                <p><strong>Description:</strong> A fully responsive, high-performance Progressive Web App (PWA) built for Pixium Kenya, featuring interactive mapping, 3D product visualization, and seamless user experience. The website can be installed on any device and works offline.</p>
-                
-                <ul style="margin-left: 1rem; color: var(--text-secondary); margin-top: 0.5rem;">
-                    <li><strong>Progressive Web App:</strong> Full PWA implementation with manifest, service workers, and installable features</li>
-                    <li><strong>Interactive Store Locator:</strong> Integrated Leaflet.js mapping to help users find nearby shops and distributors</li>
-                    <li><strong>3D Product Visualization:</strong> Implemented 3D rotation for product displays using Three.js</li>
-                    <li><strong>Dynamic Form Integration:</strong> Fully functional contact form with API integration</li>
-                    <li><strong>Mobile-First Responsive Design:</strong> Optimized for all devices from mobile to desktop</li>
-                </ul>
-                
-                <div class="project-links">
-                    <a href="https://pixiumkenya.vercel.app/" class="project-link-modern" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
-                    <a href="https://github.com/FridaPrecious/website" class="project-link-modern" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- AI Pneumonia Detection Project -->
-        <div class="project-premium reveal">
-            <div class="project-header-premium">
-                <h3>AI-Powered Pneumonia Detection and Stage Classification <span class="tech-stack-badge">Deep Learning • Flask</span></h3>
-                <p style="color: var(--accent-cyan);">From Chest X-Rays</p>
-            </div>
-            <div class="project-body-premium">
-                <p><strong>Description:</strong> Full deep learning pipeline using three custom-trained models for detecting pneumonia and classifying its stages from chest X-ray images.</p>
-                <ul style="margin-left: 1rem; color: var(--text-secondary);">
-                    <li>Image Verification Model (Keras): Filters non-chest X-ray uploads</li>
-                    <li>Pneumonia Detection Model (PyTorch): Binary classification to detect presence/absence of pneumonia</li>
-                    <li>Stage Classifier (Keras): Multi-class model for pneumonia stages - congestion, red hepatization, grey hepatization, resolution</li>
-                    <li>Applied oversampling to address dataset imbalance and improve model accuracy</li>
-                    <li>Used transfer learning (ResNet18) on the Stanford AIMI mimic-cxr dataset</li>
-                    <li>Built a Flask web application for real-time analysis with Docker containerization</li>
-                </ul>
-                <a href="https://github.com/FridaPrecious/happy_doctors.git" class="project-link-modern" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
-            </div>
-        </div>
-    </section>
+            </article>
+        </section>
 
-    <footer class="footer-tech">
-        <h2 style="font-family: 'Syne', sans-serif;">Let's Connect</h2>
-        <p>Feel free to reach out for collaborations or just to say hello!</p>
-        <div class="social-ring">
-            <a href="https://linkedin.com/in/precious-anyangu-44a5a326b" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/FridaPrecious" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-        <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin: 1rem 0;">
-            <span><i class="fas fa-phone"></i> +254 103 487 402</span>
-            <span><i class="fas fa-envelope"></i> anyanguprecious@gmail.com</span>
-        </div>
-        <div class="copyright" style="margin-top: 2rem; font-size: 0.8rem;">&copy; 2026 Precious Anyangu. All rights reserved.</div>
-    </footer>
+        <section id="experience" class="reveal">
+            <div class="label">Experience</div>
+
+            <div class="job">
+                <div class="when">PRESENT</div>
+                <div>
+                    <h3>System Administrator</h3>
+                    <div class="org">NouriValink</div>
+                    <ul>
+                        <li>Run the full technical stack with a focus on availability, security and smooth operation</li>
+                        <li>Maintain and optimise the offline-ready PWA</li>
+                        <li>Manage domains, DNS, SSL/TLS and routing</li>
+                        <li>Set up corporate email with SPF, DKIM and DMARC for deliverability and domain security</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="when">JUL – SEP 2026</div>
+                <div>
+                    <h3>Graduate Trainee</h3>
+                    <div class="org">Tangazoletu Limited</div>
+                    <ul>
+                        <li>Built and tested fintech backend applications in Java and Spring Boot</li>
+                        <li>Worked in an Agile team: stand-ups, sprint planning and retrospectives</li>
+                        <li>Completed multiple coding assessments and technical challenges</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="when">OCT 2025 – MAR 2026</div>
+                <div>
+                    <h3>Front-End Developer</h3>
+                    <div class="org">Pixium Technologies Africa Limited</div>
+                    <ul>
+                        <li>Turned UI/UX designs into responsive, cross-browser pages in HTML, CSS, JavaScript and React</li>
+                        <li>Converted the website into an installable, offline-capable PWA</li>
+                        <li>Integrated backend APIs, ran UI testing and tuned performance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="when">MAY 2025 – JAN 2026</div>
+                <div>
+                    <h3>Data Collection Enumerator</h3>
+                    <div class="org">University of Nairobi research project</div>
+                    <ul>
+                        <li>Interviewed avocado farmers in Murang'a and Kiambu counties</li>
+                        <li>Recorded and organised field data accurately</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="when">MAY – DEC 2024</div>
+                <div>
+                    <h3>Software Engineer Intern</h3>
+                    <div class="org">Kenya Agricultural & Livestock Research Organization (KALRO)</div>
+                    <ul>
+                        <li>Supported the Kenya Agricultural Observatory Platform (KAOP)</li>
+                        <li>Fixed data-sync issues, improving real-time update speed by 30%</li>
+                        <li>Traced dashboard delays through server logs and API diagnostics</li>
+                        <li>Wrote troubleshooting guides for field officers and analysed plant-disease and seedling-order trends</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="when">JAN 2022 – MAY 2024</div>
+                <div>
+                    <h3>Sales & Merchandising Assistant</h3>
+                    <div class="org">Independent contractor</div>
+                    <ul>
+                        <li>Managed product placement and branding in major supermarkets, and built relationships with store managers</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="stack" class="reveal">
+            <div class="label">Stack</div>
+            <div class="skills">
+                <div class="skill"><h4>Front-end</h4><p>JavaScript (ES6+), React, Angular, HTML5, CSS3, Tailwind, PWA, Leaflet.js, Three.js</p></div>
+                <div class="skill"><h4>Back-end</h4><p>Java 21, Spring Boot, Django & DRF, Flask, REST APIs, JWT, PostgreSQL, MySQL, SQLite</p></div>
+                <div class="skill"><h4>Systems</h4><p>RabbitMQ, Spring AMQP, microservices, Docker, Maven, Git/GitHub, Vercel, DNS, SPF/DKIM/DMARC</p></div>
+                <div class="skill"><h4>ML & AI</h4><p>Python, PyTorch, TensorFlow, Keras, scikit-learn, OpenCV, transfer learning, computer vision</p></div>
+                <div class="skill"><h4>Mobile</h4><p>Flutter, Ionic</p></div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact reveal">
+            <div class="label">Contact</div>
+            <h2>Have something to build? <a href="mailto:anyanguprecious@gmail.com">Let's talk.</a></h2>
+            <div class="meta">
+                <a href="mailto:anyanguprecious@gmail.com">anyanguprecious@gmail.com</a>
+                <a href="tel:+254103487402">+254 103 487 402</a>
+                <a href="https://github.com/FridaPrecious" target="_blank" rel="noopener">GitHub ↗</a>
+                <a href="https://linkedin.com/in/precious-anyangu-44a5a326b" target="_blank" rel="noopener">LinkedIn ↗</a>
+            </div>
+            <footer>
+                <span>© 2026 Precious Anyangu</span>
+                <span>DESIGNED & BUILT WITH CODE</span>
+            </footer>
+        </section>
+    </main>
 </div>
 
 <script>
-    function createBubbles() {
-        const bgContainer = document.querySelector('.galaxy-bg');
-        const bubbleCount = 45;
-        const glowOrbCount = 12;
-        
-        for (let i = 0; i < bubbleCount; i++) {
-            const bubble = document.createElement('div');
-            bubble.classList.add('bubble');
-            const size = Math.random() * 60 + 15;
-            bubble.style.width = size + 'px';
-            bubble.style.height = size + 'px';
-            bubble.style.left = Math.random() * 100 + '%';
-            bubble.style.animationDuration = Math.random() * 15 + 8 + 's';
-            bubble.style.animationDelay = Math.random() * 15 + 's';
-            bubble.style.opacity = Math.random() * 0.4 + 0.1;
-            bgContainer.appendChild(bubble);
+    // Reveal Animations
+    const io = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('in');
+    }), { threshold: .08 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Active Nav Link
+    const links = [...document.querySelectorAll('.nav a')];
+    const secs = links.map(a => document.querySelector(a.getAttribute('href')));
+    const spy = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) {
+            links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
         }
-        
-        for (let i = 0; i < glowOrbCount; i++) {
-            const glow = document.createElement('div');
-            glow.classList.add('bubble-glow');
-            const size = Math.random() * 180 + 80;
-            glow.style.width = size + 'px';
-            glow.style.height = size + 'px';
-            glow.style.left = Math.random() * 100 + '%';
-            glow.style.top = Math.random() * 100 + '%';
-            glow.style.animationDuration = Math.random() * 20 + 20 + 's';
-            glow.style.animationDelay = Math.random() * 5 + 's';
-            glow.style.opacity = Math.random() * 0.25 + 0.05;
-            bgContainer.appendChild(glow);
-        }
-        
-        for (let i = 0; i < 80; i++) {
-            const sparkle = document.createElement('div');
-            sparkle.style.position = 'absolute';
-            sparkle.style.width = Math.random() * 3 + 1 + 'px';
-            sparkle.style.height = sparkle.style.width;
-            sparkle.style.backgroundColor = 'rgba(255,255,255,0.6)';
-            sparkle.style.borderRadius = '50%';
-            sparkle.style.left = Math.random() * 100 + '%';
-            sparkle.style.top = Math.random() * 100 + '%';
-            sparkle.style.opacity = Math.random() * 0.5 + 0.2;
-            sparkle.style.animation = `twinkle ${Math.random() * 3 + 2}s infinite alternate`;
-            sparkle.style.pointerEvents = 'none';
-            bgContainer.appendChild(sparkle);
-        }
-    }
-    
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    });
-    
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) entry.target.classList.add('visible');
-        });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
-    
-    window.addEventListener('load', createBubbles);
+    }), { rootMargin: '-30% 0px -60% 0px' });
+    secs.forEach(s => s && spy.observe(s));
 </script>
 </body>
 </html>
