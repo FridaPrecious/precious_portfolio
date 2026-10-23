@@ -363,17 +363,6 @@
             transform: translateY(-5px);
         }
 
-        .current-tag {
-            background: var(--accent-cyan);
-            color: #03050B;
-            font-size: 0.7rem;
-            font-weight: bold;
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-            display: inline-block;
-            margin-bottom: 0.8rem;
-        }
-
         .exp-card h3 {
             font-size: 1.3rem;
             margin: 0.3rem 0 0.2rem;
@@ -645,9 +634,13 @@
             </div>
             <div class="glass-panel reveal">
                 <h3>Education & Credentials</h3>
-                <p><strong>Jomo Kenyatta University of Agriculture and Technology (JKUAT)</strong><br>Bachelor of Science in Computer Science - Second Class Upper Division</p>
+                <p><strong>Jomo Kenyatta University of Agriculture and Technology (JKUAT)</strong><br>
+                Bachelor of Science in Computer Science | <em>Sep 2021 – Dec 2025</em><br>
+                <span style="font-size: 0.9rem; color: var(--text-secondary); display: inline-block; margin-top: 0.5rem;">College of Applied Sciences, School of Computing and IT. Developed a strong foundation in software engineering, algorithms, database management, and artificial intelligence.</span></p>
+                
                 <h3 style="margin-top: 1.5rem; font-size: 1.3rem;">Certification</h3>
                 <p><strong>Microsoft Azure Fundamentals</strong> - Issued June 2023</p>
+                
                 <h3 style="margin-top: 1.5rem; font-size: 1.3rem;">Languages</h3>
                 <p>English, Kiswahili (Proficient in oral, written, and technical communication)</p>
             </div>
@@ -661,17 +654,34 @@
                 <h2>Work Experience</h2>
             </div>
             <div class="resume-grid-modern">
+                <!-- NouriValink Current Role -->
                 <div class="exp-card reveal">
-                    <div class="current-tag">RECENT ROLE</div>
-                    <h3>Software Intern</h3>
-                    <div class="exp-date">Tangazoletu Limited | July 2026 – September 2026</div>
+                    <h3>System Administrator</h3>
+                    <div class="exp-date">NouriValink | Present</div>
                     <ul class="exp-list">
-                        <li>Optimized Spring Boot backend services, improving system reliability under high transaction loads</li>
-                        <li>Developed and deployed Angular-based transaction processing systems, reducing support incidents and improving operational efficiency</li>
-                        <li>Migrated mobile apps from Ionic to Flutter, delivering an improved UI/UX that boosted customer engagement</li>
-                        <li>Used AI prompting tools to speed up code reviews, documentation and test generation, shortening development cycles</li>
+                        <li>Manage the end-to-end technical infrastructure and digital presence for NouriValink</li>
+                        <li>Oversee the complete technical stack, ensuring high availability, security, and smooth operation of the application infrastructure</li>
+                        <li>Maintain, update, and optimize the NouriValink Progressive Web App (PWA), ensuring a seamless, offline-ready experience for users</li>
+                        <li>Handle domain registration, DNS configuration, SSL/TLS certificates, and routing to ensure secure and reliable access to the platform</li>
+                        <li>Configure and manage corporate email systems, including setting up SPF, DKIM, and DMARC protocols to ensure high deliverability and domain security</li>
                     </ul>
                 </div>
+                
+                <!-- Tangazoletu Graduate Trainee -->
+                <div class="exp-card reveal">
+                    <h3>Graduate Trainee</h3>
+                    <div class="exp-date">Tangazoletu Limited | July 2026 – September 2026</div>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.8rem;">
+                        Participated in an intensive training program focused on software development within the Fintech sector. Gained hands-on experience with Java and Spring Boot while working within an Agile framework.
+                    </p>
+                    <ul class="exp-list">
+                        <li><strong>Fintech Development:</strong> Built and tested backend applications using Java and Spring Boot, focusing on financial technology solutions.</li>
+                        <li><strong>Agile Methodology:</strong> Actively participated in daily stand-up meetings, sprint planning, and retrospectives to ensure continuous delivery.</li>
+                        <li><strong>Technical Assessment:</strong> Successfully completed multiple coding assessments and technical challenges to validate development skills.</li>
+                        <li><strong>Collaboration:</strong> Worked closely with the engineering team to understand production-level workflows and code standards.</li>
+                    </ul>
+                </div>
+                
                 <div class="exp-card reveal">
                     <h3>Front-End Developer</h3>
                     <div class="exp-date">Pixium Technologies Africa Limited | October 2025 – March 2026</div>
@@ -683,6 +693,7 @@
                         <li>Use Git/GitHub for code management and collaborate with designers and backend teams</li>
                     </ul>
                 </div>
+                
                 <div class="exp-card reveal">
                     <h3>Data Collection Enumerator</h3>
                     <div class="exp-date">Research Project, University of Nairobi | May 2025 – January 2026</div>
@@ -692,6 +703,7 @@
                         <li>Record and organize data efficiently demonstrating attention to detail and reliability</li>
                     </ul>
                 </div>
+                
                 <div class="exp-card reveal">
                     <h3>Software Engineer Intern</h3>
                     <div class="exp-date">Kenya Agricultural & Livestock Research Organization (KALRO) | May 2024 – December 2024</div>
@@ -703,6 +715,7 @@
                         <li>Performed data analysis on plant disease trends and seedling orders</li>
                     </ul>
                 </div>
+                
                 <div class="exp-card reveal">
                     <h3>Sales and Merchandising Assistant</h3>
                     <div class="exp-date">Independent Contractor | Jan 2022 – May 2024</div>
@@ -747,10 +760,10 @@
                 <span class="skill-badge">MySQL</span><span class="skill-badge">Git/GitHub</span><span class="skill-badge">Docker</span><span class="skill-badge">Vercel</span></div>
             </div>
             <div class="skill-category-modern reveal">
-                <h4><i class="fas fa-cubes"></i> Microservices & Distributed Systems</h4>
+                <h4><i class="fas fa-cubes"></i> Microservices & Systems</h4>
                 <div><span class="skill-badge">Java 21</span><span class="skill-badge">Spring Boot</span><span class="skill-badge">Spring AMQP</span><span class="skill-badge">RabbitMQ</span>
                 <span class="skill-badge">Microservices</span><span class="skill-badge">Message Queuing</span><span class="skill-badge">Apache POI</span><span class="skill-badge">Maven</span>
-                <span class="skill-badge">Database-per-Service</span><span class="skill-badge">Fault Tolerance</span></div>
+                <span class="skill-badge">DNS & Domain Mgmt</span><span class="skill-badge">Email Security (SPF/DKIM)</span></div>
             </div>
         </div>
     </section>
@@ -765,10 +778,10 @@
         <div class="project-premium reveal">
             <div class="project-header-premium">
                 <h3>NouriValink <span class="tech-stack-badge">PWA • Full-Stack • Custom Domain</span></h3>
-                <p style="color: var(--accent-cyan);">Progressive Web App | Live at nourivalink.com | Installable, Offline-Ready Experience</p>
+                <p style="color: var(--accent-cyan);">Progressive Web App | Installable | Offline-Ready Experience</p>
             </div>
             <div class="project-body-premium">
-                <p><strong>Description:</strong> A production Progressive Web App (PWA) designed, developed, and deployed end-to-end to a live custom domain at <strong>nourivalink.com</strong>. Built independently from concept through launch, featuring installable native-like behavior, offline support, and a responsive interface — covering UI design, backend integration, PWA implementation, and ongoing maintenance.</p>
+                <p><strong>Description:</strong> A production Progressive Web App (PWA) designed, developed, and deployed end-to-end to a live custom domain. Built independently from concept through launch, featuring installable native-like behavior, offline support, and a responsive interface — covering UI design, backend integration, PWA implementation, and ongoing maintenance.</p>
                 
                 <ul style="margin-left: 1rem; color: var(--text-secondary); margin-top: 0.5rem;">
                     <li><strong>Progressive Web App:</strong> Full PWA implementation with web app manifest, service workers, install prompts, and standalone display mode for a native-app experience</li>
@@ -781,7 +794,7 @@
                 </ul>
                 
                 <div class="project-links">
-                    <a href="https://nourivalink.com" class="project-link-modern" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Live PWA</a>
+                    <a href="https://nourivalink.com" class="project-link-modern" target="_blank"><i class="fas fa-external-link-alt"></i> Visit NouriValink</a>
                 </div>
             </div>
         </div>
